@@ -1,11 +1,57 @@
-<!DOCTYPE>
-<html>
-    <head>
-        <title>B2C</title>
-    </head>
-    <body>
-        <h1>Hi there!</h1>
-    </body>
-</html>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2C</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
+    <link rel = "icon" href ="{{ url_for('static', filename='images/logo1.png') }}" type = "image/x-icon">
+</head>
+<body>
     
+    <header class="navbar">
+
+        <div class="logoAndLine">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="B2C Logo">
+            </div>
+    
+            <div class="line1">
+                <img src="{{ url_for('static', filename='images/Line2.png') }}" alt="B2C Logo">
+            </div>
+        </div>
+        
+        
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">Services <img class="down-button" src="{{ url_for('static', filename='images/dropdown.svg') }}" alt="Dropdown Icon"></a>
+                    <div class="dropdown-menu">
+                        <a href="#">Application Development</a>
+                        <a href="#">IT Structures</a>
+                        <a href="#">System Integration</a>
+                    </div>
+                </li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+
+        <div class='right-buttons'>
+
+            <div class="career-btn">
+                <a href="#">Careers</a>
+              </div>
+
+            <div class="login-btn">
+                <a href="#">Login</a>
+              </div>
+
+
+        <div>
+        
+    </header>
+
+</body>
+</html>

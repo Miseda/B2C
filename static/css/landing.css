@@ -1,0 +1,113 @@
+@font-face {
+    font-family: 'Gordita';
+    src: url('/static/fonts/Gordita-Bold.ttf') format('truetype'),
+         url('/static/fonts/Gordita-Medium.ttf') format('truetype'),
+         url('/static/fonts/Gordita-Regular.ttf') format('truetype'),
+         url('/static/fonts/Gordita-Light.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.logoAndLine{
+    display: flex;
+    align-items: center;
+    padding-top: 15px;
+}
+
+.logo img {
+    width: 90px; /* Adjust as needed */
+    height: auto;
+}
+
+.line1 img{
+    padding-left: 50px;
+    width: 0.8px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 25px 60px;
+    border-bottom: 1px solid black;
+    height: 80px;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: flex;
+    padding-top: 20px;
+    padding-right: 150px;
+    font-family: 'Gordita-Regular';
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-menu a {
+    display: flex; /* Use flex to align items horizontally */
+    align-items: center; /* Center items vertically */
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+}
+
+.down-button {
+    width: 27px;
+    margin-left: 5px; /* Add margin to separate the image from the text */
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.right-buttons {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-top: 8px;
+}
+
+.login-btn a{
+    display: inline-block;
+    padding: 10px 80px;
+    background-color: #2E6EDF;
+    font-family: 'Gordita-Regular';
+    font-size: 18.5px;
+    color: white;
+    text-decoration: none;
+    border-radius: 7px;
+}
+
+.career-btn a{
+    display: inline-block;
+    padding: 10px 80px;
+    background-color: white;
+    font-family: 'Gordita-Regular';
+    font-size: 18.5px;
+    color: #2E6EDF;
+    text-decoration: none;
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #2E6EDF;
+    border-radius: 4px;
+}
+
