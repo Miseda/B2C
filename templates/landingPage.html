@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2C</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/landing.css') }}">
-    <link rel = "icon" href ="{{ url_for('static', filename='images/logo1.png') }}" type = "image/x-icon">
+    <link rel = "icon" href ="{{ url_for('static', filename='images/Head2.png') }}" type = "image/x-icon">
 </head>
 <body>
     
@@ -20,7 +20,20 @@
                 <img src="{{ url_for('static', filename='images/Line2.png') }}" alt="B2C Logo">
             </div>
         </div>
-        
+
+        <div class="burger-menu">
+            <img class="burger-icon" src="{{ url_for('static', filename='images/Menu.svg') }}" alt="Burger Icon">
+            <div class="burger-dropdown">
+                <a href="#">Home <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="#">Login <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+            </div>
+        </div>
         
         <nav class="nav-menu">
             <ul>
@@ -28,9 +41,9 @@
                 <li class="dropdown">
                     <a href="#">Services <img class="down-button" src="{{ url_for('static', filename='images/dropdown.svg') }}" alt="Dropdown Icon"></a>
                     <div class="dropdown-menu">
-                        <a href="#">Application Development</a>
-                        <a href="#">IT Structures</a>
-                        <a href="#">System Integration</a>
+                        <a href="#">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                        <a href="#">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                        <a href="#">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     </div>
                 </li>
                 <li><a href="#">About Us</a></li>
@@ -52,6 +65,171 @@
         <div>
         
     </header>
+
+    <div class="first-container">
+
+        <div class="left-div">
+            <div class="title1">
+                <p>Innovative IT solutions</p>
+            </div>
+
+            <div class="paragraph1">
+                <p>With commitment to results and customer satisfaction.</p>
+            </div>
+
+            <div class="left-div-btns">
+
+                <div class="apply-btn">
+                    <a href="#">Apply for Jobs</a>
+                  </div>
+    
+                <div class="hire-btn">
+                    <a href="#">Explore Custom Engineering</a>
+                  </div>
+
+            </div>
+
+            <div class="paragraph2">
+                <p>Do you have a project with a proof of concept that needs to be developed? <a href="#">Hire a developer</a></p>
+            </div>
+
+        </div>
+
+        <div class="right-div">
+            <img src="{{ url_for('static', filename='images/SVG1.png') }}" alt="Landing SVG">
+        </div>
+
+    </div>
+
+    <div class="second-container">
+        <div class="title2">
+            <p>More growth. More expertise. More benefits.</p>
+        </div>
+
+        <div class="paragraph3">
+            <p>Some of the companies we have worked with include</p>
+        </div>
+
+        <div class="companies">
+            <img class="udugu" src="{{ url_for('static', filename='images/UduguLogo.png') }}" alt="Udugu Logo">
+            <img class="soko" src="{{ url_for('static', filename='images/B2CSokoLogo.png') }}" alt="B2C Soko Logo">
+            <img class="fundi" src="{{ url_for('static', filename='images/AfricanFundiLogo.png') }}" alt="Afrikan Fundi Logo">
+        </div>
+    </div>
+
+    <div class="third-container">
+        <div class="title3">
+            <p>Services we offer</p>
+            <img class="line3" src="{{ url_for('static', filename='images/Line3.png') }}" alt="Afrikan Fundi Logo">
+        </div>
+
+        <div class="services">
+            <div class="card">
+                <div class="card-pic">
+                    <img src="{{ url_for('static', filename='images/dev.jpg') }}" alt="Applicationn Development">
+                </div>
+                <div class="card-details">
+                    <div class="card-title">
+                        <p>Application Development</p>
+                    </div>
+                    <div class="card-description">
+                        <p>We’ll help define your requirements, write specifications and design, develop, test and 
+                            integrate software across multiple platforms enabling you acquire high quality custom applications.</p>
+                    </div>
+                    <div class="card-btn">
+                        <a href="#">Read More</a>
+                      </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-pic">
+                    <img src="{{ url_for('static', filename='images/IT.jpg') }}" alt="IT infrastructure">
+                </div>
+                <div class="card-details">
+                    <div class="card-title">
+                        <p>IT Infrastructure</p>
+                    </div>
+                    <div class="card-description">
+                        <p>Cost effectively solve your key Infrastructure challenges and 
+                            Grow IT as your Business needs demand with a modular open, building-block based infrastructure.</p>
+                    </div>
+                    <div class="card-btn">
+                        <a href="#">Read More</a>
+                      </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-pic">
+                    <img src="{{ url_for('static', filename='images/system.jpg') }}" alt="System Integration">
+                </div>
+                <div class="card-details">
+                    <div class="card-title">
+                        <p>System Integration</p>
+                    </div>
+                    <div class="card-description">
+                        <p>We’ll help you attain integration maturity from data synchronization, 
+                            functional application integration, to seamless and secure business-process integration and optimization.</p>
+                    </div>
+                    <div class="card-btn">
+                        <a href="#">Read More</a>
+                      </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="fourth-container">
+        <div class="right-div-2">
+            <img src="{{ url_for('static', filename='images/SVG2.PNG') }}" alt="Second SVG">
+        </div>
+
+        <div class="left-div-2">
+            <div class="title5">
+                <p>Why are the best developers joining Batanai 2 Create?</p>
+            </div>
+
+            <div class="c4-paragraphs">
+                <ul>
+                    <li>Exclusive B2C developer success support.</li>
+                    <br>
+                    <li>Proper Networking.</li>
+                    <br>
+                    <li>Income Stability </li>
+                </ul>  
+            </div>
+
+            <div class="last-btn">
+                <a href="#">Read More</a>
+              </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="location">
+                <p>Udugu Open House<br>42 Harvey Brown Milton Park Harare </p>
+                <p>+263 242 250 602</p>
+
+            </div>
+            <div class="socials">
+                <p>Join Us On Social Media </p>
+
+                <div class="social-icons">
+                    <img class="fb" src="{{ url_for('static', filename='images/Facebook.png') }}" alt="Facebook">
+                    <img class="x" src="{{ url_for('static', filename='images/X.png') }}" alt="X">
+                    <img class="wa" src="{{ url_for('static', filename='images/Whatsapp.png') }}" alt="Whatsapp">
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    
 
 </body>
 </html>

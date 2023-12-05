@@ -18,29 +18,33 @@ body {
 }
 
 .logo img {
-    width: 90px; /* Adjust as needed */
+    width: 70px; /* Adjust as needed */
     height: auto;
 }
 
 .line1 img{
     padding-left: 50px;
-    width: 0.8px;
+    width: 0.7px;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
-    padding: 25px 60px;
-    border-bottom: 1px solid black;
-    height: 80px;
+    padding: 20px 100px;
+    /* border-bottom: 1px solid black; */
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .nav-menu ul {
     list-style: none;
     display: flex;
-    padding-top: 20px;
-    padding-right: 150px;
+    padding-top: 15px;
+    padding-right: 100px;
     font-family: 'Gordita-Regular';
     align-items: center;
     gap: 30px;
@@ -58,6 +62,15 @@ body {
 .down-button {
     width: 27px;
     margin-left: 5px; /* Add margin to separate the image from the text */
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.nav-menu a:hover .down-button {
+    transform: rotate(180deg); 
+}
+
+.dropdown:hover .down-button {
+    transform: rotate(180deg);
 }
 
 .dropdown {
@@ -66,12 +79,31 @@ body {
 
 .dropdown-menu {
     display: none;
+    width: 300px;
     position: absolute;
-    top: 100%;
-    left: 0;
+    border: 1px solid #ccc;
     background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    padding: 10px;
+}
+
+.dropdown-menu a {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px;
+    text-decoration: none;
+    color: #000000;
+    font-family: 'Gordita-Regular';
+    font-size: 17px;
+    border-bottom: 1px solid #ccc; 
+}
+
+.dropdown-menu a:last-child {
+    border-bottom: none; 
+}
+
+.dropdown-menu a:hover {
+    color: #2E6EDF; 
 }
 
 .dropdown:hover .dropdown-menu {
@@ -82,7 +114,7 @@ body {
     display: flex;
     align-items: center;
     gap: 30px;
-    padding-top: 8px;
+    padding-top: 7px;
 }
 
 .login-btn a{
@@ -90,7 +122,7 @@ body {
     padding: 10px 80px;
     background-color: #2E6EDF;
     font-family: 'Gordita-Regular';
-    font-size: 18.5px;
+    font-size: 17px;
     color: white;
     text-decoration: none;
     border-radius: 7px;
@@ -101,7 +133,7 @@ body {
     padding: 10px 80px;
     background-color: white;
     font-family: 'Gordita-Regular';
-    font-size: 18.5px;
+    font-size: 17px;
     color: #2E6EDF;
     text-decoration: none;
     border-radius: 4px;
@@ -109,5 +141,532 @@ body {
     border-width: 1px;
     border-color: #2E6EDF;
     border-radius: 4px;
+}
+
+/* Add styles for background color change on hover */
+.login-btn a,
+.career-btn a {
+    display: inline-block;
+    padding: 10px 80px;
+    font-family: 'Gordita-Regular';
+    font-size: 18.5px;
+    text-decoration: none;
+    border-radius: 7px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add a smooth transition effect */
+}
+
+.login-btn a:hover {
+    background-color: #2961c4 ; /* Use custom property for hover color */
+    color: white; /* Use custom property for text color on hover */
+}
+
+.career-btn a:hover {
+    background-color: #f1f5fd; /* Use custom property for hover color */
+    color: #2e6edf; /* Use custom property for text color on hover */
+}
+
+.chevron-icon {
+    width: 50px; /* Adjust the width of the chevron icon as needed */
+    height: auto;
+    transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+.dropdown-menu a:hover .chevron-icon {
+    transform: translateX(5px);; /* Rotate the chevron icon on hover */
+}
+
+.burger-menu {
+    display: none;
+}
+
+.burger-icon {
+    width: 50px;
+    align-items: center;
+    height: auto;
+    cursor: pointer;
+}
+
+.burger-dropdown {
+    display: none;
+    flex-direction: column;
+    width: 300px;
+    position: absolute;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.burger-dropdown a:last-child {
+    border-bottom: none; /* Remove the border from the last option */
+}
+
+.burger-dropdown a {
+     display: flex;
+     justify-content: space-between;
+     padding: 15px 15px;
+     text-decoration: none;
+     color: #000000;
+     font-family: 'Gordita-Regular';
+     font-size: 17px; /* Adjust the font size as needed */
+     border-bottom: 1px solid #ccc; /* Add a grey line between options */
+}
+
+.burger-menu:hover .burger-dropdown{
+    display: block;
+}
+
+.burger-dropdown a:hover {
+    color: #2E6EDF; /* Change the text color to #2E6EDF on hover */
+}
+
+.burger-dropdown a:hover .chevron-icon {
+    transform: translateX(5px);; /* Rotate the chevron icon on hover */
+}
+
+.first-container{
+    padding: 0px 100px;
+    display: flex;
+    align-items: center;
+    gap: 150px;
+}
+
+.right-div img{
+    width: 105%;
+}
+
+.left-div {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    flex-basis: 100%;
+} 
+
+.title1,
+.paragraph1,
+.left-div-btns,
+.paragraph2 {
+    width: 100%; /* Make these elements take the full width of the left div */
+}
+
+.left-div-btns {
+    display: flex;
+    gap: 20px;
+}
+
+.title1{
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 40px;
+    font-style: normal;
+    line-height: 2;
+    width: max-content;
+    height: 120px;
+}
+
+.paragraph1 {
+    width: 400px;
+    height: 83px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    overflow-wrap: break-word;
+}
+
+.paragraph2 {
+    width: 400px;
+    height: 145px;
+    flex-shrink: 0;
+    color: #000;
+    font-family: 'Gordita-Light';
+    font-size: 14px;
+    font-style: normal;
+    overflow-wrap: break-word;
+    margin-top: 30px; 
+}
+
+.paragraph2 a {
+    text-decoration: none;
+    color: #2E6EDF;
+    font-weight: 300;
+    font-family: 'Gordita-Regular'
+}
+
+.apply-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 191px;
+    height: 40px;
+    background-color: #2E6EDF; /* Use the background color of the button */
+    font-family: 'Gordita-Regular';
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #2E6EDF;
+}
+
+.hire-btn a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300px;
+    height: 40px;
+    background-color: #2E6EDF; /* Use the background color of the button */
+    font-family: 'Gordita-Regular';
+    font-size: 17px;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #2E6EDF;
+}
+
+.apply-btn a {
+    background-color: white;
+    color: #2E6EDF;
+}
+
+/* Add styles for background color change on hover */
+.hire-btn a:hover {
+    background-color: #2961c4;
+}
+
+.apply-btn a:hover {
+    background-color: #f1f5fd;
+    color: #2e6edf;
+}
+
+.second-container {
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.title2{
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 30px;
+    font-style: normal;
+}
+
+.paragraph3 {
+    color: #000;
+    font-family: 'Gordita-Light';
+    font-size: 14px;
+    font-style: normal;
+}
+
+.companies{
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+    margin-bottom: 40px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+}
+
+.companies img{
+    width: 100px;
+    height: auto;
+}
+
+.companies .soko{
+    padding-top: 20px;
+    height: 40px;
+}
+
+.companies .udugu{
+    height: 70px;
+}
+
+.companies .fundi{
+    height: 75px;
+}
+
+.third-container{
+    padding: 20px 100px;
+}
+
+.title3{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 30px;
+    font-style: normal;
+}
+
+.title3 .line3{
+    width: 120px;
+}
+
+.services{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 120px;
+    padding-bottom: 50px;
+
+}
+
+.card{
+    padding: 30px 30px;
+    width: 40%;
+    height: auto;
+    flex-shrink: 0;
+    border-radius: 5px;
+    border: 1px solid #AEAEAE;
+    background: rgba(217, 217, 217, 0.00);
+}
+
+.card-pic{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-pic img{
+    width: 100%;
+    height: 206px;
+    flex-shrink: 0;
+    border-radius: 4px;
+}
+
+.card-details{
+    display: flex;
+    flex-direction: column;
+    padding-left: 1px;
+    padding-top: 8px;
+}
+
+.card-title {
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 20px;
+    font-style: normal
+}
+
+.card-description{
+    font-family: 'Gordita-Light';
+    font-size: 16px;
+    padding-bottom: 20px;
+}
+
+.card-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    color: #2E6EDF; /* Use the background color of the button */
+    font-family: 'Gordita-Regular';
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    border: 1px solid #2E6EDF;
+}
+
+.fourth-container{
+    padding: 10px 120px;
+    display: flex;
+    align-items: center;
+    gap: 150px;
+    background-color: #F8F8F8;
+    height: auto;
+}
+.left-div-2 {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    flex-basis: 100%;
+} 
+
+.right-div-2 img{
+    width: 105%;
+}
+
+.title5{
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 30px;
+    font-style: normal;
+}
+
+.c4-paragraphs{
+    color: #000;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    margin: -25px;
+    padding-bottom: 20px;
+}
+
+.last-btn a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 40px;
+    background-color: #2E6EDF; /* Use the background color of the button */
+    color: #ffffff;
+    font-family: 'Gordita-Regular';
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 4px;
+    margin-top: 20px;
+    border: 1px solid #2E6EDF;
+}
+
+footer {
+    background-color: black; /* Add background color as needed */
+    text-align: left;
+    padding: 30px 100px; /* Adjust padding as needed */
+    font-size: 15px;
+    font-family: 'Gordita-Medium';
+    color: #ffffff;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
+
+.location {
+    text-align: center;
+    width: 250px;
+}
+
+.socials {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.socials .social-icons img {
+    width: 30px; /* Adjust the size of your social media icons */
+}
+
+.socials .social-icons .fb {
+    width: 45px; /* Adjust the size of your social media icons */
+}
+
+.socials .social-icons .wa {
+    width: 37px; /* Adjust the size of your social media icons */
+}
+
+.socials .social-icons .x {
+    width: 30px; /* Adjust the size of your social media icons */
+}
+
+/* Add media query for smaller screens */
+@media (max-width: 1200px) {
+
+    .navbar {
+        border-bottom: none;
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    }
+
+    .logo img {
+        width: 70px; /* Adjust as needed */
+        height: auto;
+    }
+    
+    .line1 img{
+        display: none;
+    }
+
+    .nav-menu,
+    .right-buttons {
+        display: none;
+    }
+
+    .burger-menu {
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        float: right;
+        padding-top: 10px;
+    }
+
+    .burger-icon {
+        width: 50px;
+        height: auto;
+        cursor: pointer;
+    }
+
+    .burger-dropdown {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 80px;
+        right: 0;
+        border: 1px solid #ccc;
+        background-color: #ffffff;
+        border-radius: 4px;
+        padding: 10px;
+    }
+
+    .burger-dropdown a {
+        display: flex;
+        justify-content: space-between;
+        padding: 15px 15px;
+        text-decoration: none;
+        color: #000000;
+        font-family: 'Gordita-Regular';
+        font-size: 17px;
+        border-bottom: 1px solid #ccc;
+    }
+
+    .burger-dropdown a:last-child {
+        border-bottom: none;
+    }
+
+    .burger-menu:hover .burger-dropdown {
+        display: flex;
+    }
+
+    .burger-dropdown a:hover {
+        color: #2E6EDF;
+    }
+
+    .burger-dropdown a:hover .chevron-icon {
+        transform: translateX(5px);
+    }
+
+    .first-container {
+        padding: 10px; /* Adjust padding for smaller screens */
+    }
+
+    .left-div,
+    .right-div {
+        flex-basis: 100%; /* Make each item take full width on smaller screens */
+        margin-bottom: 20px; /* Adjust as needed for spacing between items */
+    }
+
+    .paragraph1,
+    .paragraph2 {
+        width: 100%; /* Make text paragraphs take full width on smaller screens */
+    }
+
+    footer {
+        padding: 20px; /* Adjusted the padding for smaller screens */
+    }
+
+    .footer-content {
+        flex-direction: column; /* Stacked items vertically on smaller screens */
+        align-items: center;
+    }
+
+    .socials {
+        margin-top: 20px; /* Added space between location and social icons on smaller screens */
+    }
 }
 
