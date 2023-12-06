@@ -1,0 +1,219 @@
+
+.first-container{
+    margin-bottom: 250px;
+
+}
+.left-div{
+    gap: 0px;
+
+}
+.title1-1{
+    color: #2E6EDF;
+    font-family: 'Gordita-Medium';
+    font-size: 18px;
+    font-style: normal;
+    line-height: 2;
+    width: max-content;
+    height: 50px;
+}
+
+.right-div{
+    width: 80%;
+    padding-top: 150px;
+}
+
+.paragraph1-1 {
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 35px;
+    font-style: normal;
+    height: 150px;
+}
+
+.paragraph2-2{
+    width: max-content;
+    color: #000;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.0;
+    margin-top: 15px; 
+}
+
+.second-container{
+    margin-top: 30px;
+    padding: 90px 100px;
+}
+.row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; /* Aligns items to each end of the row */
+    gap: 5px;
+}
+
+.question,
+.description {
+    flex: 1; /* Distributes available space equally between question and description */
+}
+
+
+.description{
+    text-align: left;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+    width: max-content;
+
+}
+
+.question {
+    color: #2E8ADF;
+    font-size: 25px;
+    font-family: 'Gordita-Bold';
+    text-align: left;
+
+}
+
+.q2{
+    color: #2EAADF;
+}
+
+.q3{
+    color: #2EBFDF;
+}
+
+.third-container1{
+    padding: 50px 100px;
+    background: linear-gradient(90deg, #2E8ADF 36.99%, #6A79D0 90.8%);
+}
+
+.paragraph4-4{
+    text-align: left;
+    color: white;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+
+}
+
+.title3-3{
+    text-align: left;
+    color: white;
+    font-family: 'Gordita-Medium';
+    font-size: 25px;
+    
+}
+
+.customers{
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    padding-top:50px ;
+}
+
+.customerIcon{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 150px;
+}
+
+.customerIcon img{
+    width: 70px;
+}
+
+.customerIcon p{
+    text-align: left;
+    color: white;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+}
+
+.customerIcon .p {
+    width: 62px;
+}
+
+.customerIcon .h {
+    width: 85px;
+    margin-top: 3.5px;
+}
+
+.customerIcon .e{
+    width: 65px;
+}
+
+
+@media (max-width: 1200px) {
+    .row {
+        flex-direction: column; /* Stacks items vertically for smaller screens */
+        align-items: center; /* Centers items in the column */
+        text-align: center; /* Aligns text to the center */
+        padding: 10px; /* Adjusted padding for smaller screens */
+    }
+
+    .question,
+    .description {
+        width: 100%; /* Takes full width in the column layout */
+        padding: 10px 0; /* Adds some spacing between question and description */
+    }
+
+    .left-div {
+        display: flex;
+        flex-direction: column;
+        padding-top: 60px;
+        align-items: center;
+        flex-basis: 100%;
+    }
+    
+    .paragraph1-1 {
+        justify-content: center;
+        color: #000;
+        font-family: 'Gordita-Medium';
+        font-size: 35px;
+        font-style: normal;
+        text-align: center;
+    }
+    
+    .paragraph2-2 {
+        width: max-content;
+        color: #000;
+        font-family: 'Gordita-Regular';
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.0;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .paragraph2-2 {
+        color: #000;
+        font-family: 'Gordita-Regular';
+        font-size: 15x;
+        font-style: normal;
+        font-weight: 400;
+        width: 100%;
+        line-height: 1.0;
+        text-align: center;
+    }
+
+    .paragraph1-1 {
+        color: #000;
+        font-family: 'Gordita-Medium';
+        font-size: 25px;
+        font-style: normal;
+        text-align: center;
+        height: 150px;
+    }
+
+    .customers{
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: wrap;  
+        padding-top: 50px;
+    }
+}
