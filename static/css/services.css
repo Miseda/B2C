@@ -352,6 +352,7 @@ body {
     text-align: center;
     padding: 50px 20px;
     padding-bottom: 100px;
+    margin-top: 40px;
 }
 
 .title2{
@@ -640,6 +641,12 @@ footer {
     background: linear-gradient(90deg, #2E8ADF 36.99%, #6A79D0 90.8%);
 }
 
+.third-container2{
+    margin-top: 130px;
+    padding: 50px 100px;
+    background: linear-gradient(90deg, #2E8ADF 36.99%, #6A79D0 90.8%);
+}
+
 .paragraph4-4{
     text-align: left;
     color: white;
@@ -695,6 +702,30 @@ footer {
 
 .customerIcon .e{
     width: 65px;
+}
+
+.allDes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.itDes{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.desIcon img{
+    width: 50px;
+}
+
+.des{
+    text-align: left;
+    color: white;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
 }
 
 /* Add media query for smaller screens */
@@ -1116,6 +1147,34 @@ footer {
     transform: translateX(5px);; /* Rotate the chevron icon on hover */
 }
 
+.title3-3{
+    font-size: 20px;
+    text-align: center;
+}
+
+.allDes{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.itDes{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    padding-bottom: 15px;
+}
+
+.desIcon img{
+    width: 50px;
+}
+
+.des{
+    text-align: left;
+    color: white;
+    font-family: 'Gordita-Regular';
+    font-size: 15px;
+}
 
 }
 }

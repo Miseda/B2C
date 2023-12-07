@@ -9,3 +9,11 @@ def aboutUs():
 @main_bp.route('/Application-Development')
 def appDev():
     return render_template('appDev.html')
+
+@main_bp.route('/IT-Infrastructure')
+def IT():
+    return render_template('IT.html')
+
+@main_bp.route('/System-Integration')
+def sys():
+    return render_template('sys.html')

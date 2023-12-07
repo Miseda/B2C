@@ -26,8 +26,8 @@
             <div class="burger-dropdown">
                 <a href="{{ url_for('landing_page') }}">Home <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.appDev') }}">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="#">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="#">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.IT') }}">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
@@ -42,8 +42,8 @@
                     <a href="#">Services <img class="down-button" src="{{ url_for('static', filename='images/dropdown.svg') }}" alt="Dropdown Icon"></a>
                     <div class="dropdown-menu">
                         <a href="{{ url_for('main_bp.appDev') }}">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                        <a href="#">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                        <a href="#">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                        <a href="{{ url_for('main_bp.IT') }}">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                        <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     </div>
                 </li>
                 <li><a href="{{ url_for('main_bp.aboutUs') }}">About Us</a></li>
@@ -84,7 +84,7 @@
                   </div>
     
                 <div class="hire-btn">
-                    <a href="#">Explore Custom Engineering</a>
+                    <a href="{{ url_for('main_bp.appDev') }}">Explore Custom Engineering</a>
                   </div>
 
             </div>
@@ -137,7 +137,7 @@
                             integrate software across multiple platforms enabling you acquire high quality custom applications.</p>
                     </div>
                     <div class="card-btn">
-                        <a href="#">Read More</a>
+                        <a href="{{ url_for('main_bp.appDev') }}">Read More</a>
                       </div>
                 </div>
             </div>
@@ -155,7 +155,7 @@
                             Grow IT as your Business needs demand with a modular open, building-block based infrastructure.</p>
                     </div>
                     <div class="card-btn">
-                        <a href="#">Read More</a>
+                        <a href="{{ url_for('main_bp.IT') }}">Read More</a>
                       </div>
                 </div>
             </div>
@@ -173,7 +173,7 @@
                             functional application integration, to seamless and secure business-process integration and optimization.</p>
                     </div>
                     <div class="card-btn">
-                        <a href="#">Read More</a>
+                        <a href="{{ url_for('main_bp.sys') }}">Read More</a>
                       </div>
                 </div>
             </div>
