@@ -92,6 +92,7 @@
     color: white;
     font-family: 'Gordita-Regular';
     font-size: 18px;
+    padding-bottom: 30px;
 
 }
 
@@ -100,6 +101,7 @@
     color: white;
     font-family: 'Gordita-Medium';
     font-size: 25px;
+    padding-bottom: 40px;
     
 }
 
@@ -108,6 +110,7 @@
     justify-content: center;
     gap: 40px;
     padding-top:50px ;
+    padding-bottom: 30px;
 }
 
 .customerIcon{

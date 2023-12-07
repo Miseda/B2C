@@ -25,11 +25,11 @@
         <div class="burger-menu">
             <img class="burger-icon" src="{{ url_for('static', filename='images/Menu.svg') }}" alt="Burger Icon">
             <div class="burger-dropdown">
-                <a href="#">Home <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="#">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('landing_page') }}">Home <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.appDev') }}">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="#">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">Login <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
@@ -38,16 +38,16 @@
         
         <nav class="nav-menu">
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="{{ url_for('landing_page') }}">Home</a></li>
                 <li class="dropdown">
                     <a href="#">Services <img class="down-button" src="{{ url_for('static', filename='images/dropdown.svg') }}" alt="Dropdown Icon"></a>
                     <div class="dropdown-menu">
-                        <a href="#">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                        <a href="{{ url_for('main_bp.appDev') }}">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                         <a href="#">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                         <a href="#">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     </div>
                 </li>
-                <li><a href="#">About Us</a></li>
+                <li><a href="{{ url_for('main_bp.aboutUs') }}">About Us</a></li>
                 <li><a href="#">Contact Us</a></li>
             </ul>
         </nav>
