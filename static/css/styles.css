@@ -119,10 +119,10 @@ body {
 
 .login-btn a{
     display: inline-block;
-    padding: 10px 80px;
+    padding: 11px 80px;
     background-color: #2E6EDF;
-    font-family: 'Gordita-Regular';
-    font-size: 17px;
+    font-family: 'Gordita-Medium';
+    font-size: 18.5px;
     color: white;
     text-decoration: none;
     border-radius: 7px;
@@ -144,11 +144,10 @@ body {
 }
 
 /* Add styles for background color change on hover */
-.login-btn a,
 .career-btn a {
     display: inline-block;
     padding: 10px 80px;
-    font-family: 'Gordita-Regular';
+    font-family: 'Gordita-Medium';
     font-size: 18.5px;
     text-decoration: none;
     border-radius: 7px;
@@ -302,7 +301,7 @@ body {
     width: 191px;
     height: 40px;
     background-color: #2E6EDF; /* Use the background color of the button */
-    font-family: 'Gordita-Regular';
+    font-family: 'Gordita-Medium';
     font-size: 17px;
     color: white;
     text-decoration: none;
@@ -317,7 +316,7 @@ body {
     width: 300px;
     height: 40px;
     background-color: #2E6EDF; /* Use the background color of the button */
-    font-family: 'Gordita-Regular';
+    font-family: 'Gordita-Medium';
     font-size: 17px;
     color: white;
     text-decoration: none;

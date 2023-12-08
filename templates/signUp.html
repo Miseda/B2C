@@ -4,12 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2C</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel = "icon" href ="{{ url_for('static', filename='images/Head2.png') }}" type = "image/x-icon">
 </head>
 <body>
     
-    <header class="navbar">
+    <header class="navbar5">
 
         <div class="logoAndLine">
             <div class="logo">
@@ -66,109 +67,62 @@
         
     </header>
 
-    <div class="first-container">
-
-        <div class="left-div">
-            <div class="title1-1">
-                <p>IT Infrastructure</p>
-            </div>
-
-            <div class="title1">
-                <p>Cost Effectively Solve your Key Infrastructure Challenges</p>
-            </div>
-
-            <div class="paragraph1">
-                <p>Our approach to IT infrastructure Service is designed to leverage best practices for repeatable, 
-                    predictable solutions and to help reduce implementation time and allow for ease of customization or future extensibility
-                </p>
-            </div>
-
-        </div>
-
-        <div class="right-div">
-            <img src="{{ url_for('static', filename='images/IT.jpg') }}" alt="IT Infrastructure">
-        </div>
-
-    </div>
+    <div class="mainContainer">
 
 
-    <div class="third-container2">
-        <div class="title3-3">
-            <p>How do you benefit from IT Infrastructure ?</p>
-        </div>
+        <div class="contactAndIcon1">
 
-        <div class="allDes">
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
+            <div class="left-div5">
+
+                <div class="containerTitle">
+                    <p>Sign Up</p>
                 </div>
-                <div class="des">
-                    <p>Cost effectively solve your key IT infrastructure challenge</p>
-                </div>
-            </div>
-
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
-                </div>
-                <div class="des">
-                    <p>Provide customized and integrated solutions to your customers, partners and employees</p>
-                </div>
-            </div>
-
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
-                </div>
-                <div class="des">
-                    <p>Grow IT as your business needs demand with a modular, open, building-block based infrastructure</p>
-                </div>
-            </div>
-
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
-                </div>
-                <div class="des">
-                    <p>Improve reliability, security and manageability with an integrated servers, storage, networking and software solution</p>
-                </div>
-            </div>
-
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
-                </div>
-                <div class="des">
-                    <p>Reduce costs, power consumption and floor space by simplifying your infrastructure</p>
-                </div>
-            </div>
-
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
-                </div>
-                <div class="des">
-                    <p>Extend your solutions backed by a strong alliance of Partners</p>
-                </div>
-            </div>
-
-            <div class="itDes">
-                <div class="desIcon">
-                    <img src="{{ url_for('static', filename='images/Ok.svg') }}" alt="IT Infrastructure">
-                </div>
-                <div class="des">
-                    <p>Simplify your IT acquisition process.</p>
-                </div>
-            </div>
-
-
-        </div>
         
-       
+                <div class="contactDes">
+                    <p>Join us today !</p>
+                </div>
+
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="number">Phone Number</label>
+                            <input type="number" id="number" name="number" placeholder="Phone Number" required>
+                        </div>
+                
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="Password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="Password" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmPassword">Confirm Password</label>
+                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                        </div>
+                
+                        <div class="form-group1">
+                            <button type="submit">SIGN UP</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            
+            <div class="right-div5">
+                <img src="{{ url_for('static', filename='images/SignUp.svg') }}" alt="Contacts">
+            </div>
+        </div>
+
     </div>
-
-    
-
 
     <footer>
         <div class="footer-content">

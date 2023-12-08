@@ -25,3 +25,11 @@ def careers():
 @main_bp.route('/Contact-Us')
 def contact():
     return render_template('contactUs.html')
+
+@main_bp.route('/Login')
+def login():
+    return render_template('login.html')
+
+@main_bp.route('/SignUp')
+def signUp():
+    return render_template('signUp.html')

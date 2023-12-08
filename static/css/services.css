@@ -119,10 +119,10 @@ body {
 
 .login-btn a{
     display: inline-block;
-    padding: 10px 80px;
+    padding: 11px 80px;
     background-color: #2E6EDF;
-    font-family: 'Gordita-Regular';
-    font-size: 17px;
+    font-family: 'Gordita-Medium';
+    font-size: 18.5px;
     color: white;
     text-decoration: none;
     border-radius: 7px;
@@ -144,11 +144,10 @@ body {
 }
 
 /* Add styles for background color change on hover */
-.login-btn a,
 .career-btn a {
     display: inline-block;
     padding: 10px 80px;
-    font-family: 'Gordita-Regular';
+    font-family: 'Gordita-Medium';
     font-size: 18.5px;
     text-decoration: none;
     border-radius: 7px;
@@ -229,27 +228,25 @@ body {
     display: flex;
     align-items: center;
     gap: 150px;
+    margin-top: 50px;
 }
 
 .first-container4{
     padding: 0px 100px;
     display: flex;
     align-items: center;
-    margin-top: 50px;
     gap: 0px;
+    margin-top: 30px;
 }
 
-.right-div {
-    margin-right: 80px; /* Adjust the margin as needed to increase the gap */
-}
 
 .right-div img{
-    width: 100%;
+    width: 550px;
     border-radius: 10px;
 }
 
 .right-div4 img{
-    width: 100%;
+    width: 600px;
 }
 
 .left-div {
@@ -876,6 +873,8 @@ footer {
     flex-direction: column-reverse;
     justify-content: center;
     gap: 40;
+    padding-top: 30px;
+    margin-bottom: 100px;
 }
 
 .first-container4 {

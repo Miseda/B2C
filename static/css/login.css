@@ -21,8 +21,7 @@
 
 .left-div5 {
     width: 100%; /* Set width to 100% for responsiveness */
-    /* display: flex;
-    flex-direction: column; */
+    margin-left: 65px;
 }
 
 
@@ -30,7 +29,7 @@
 .containerTitle{
     color: #000;
     font-family: 'Gordita-Medium';
-    font-size: 35px;
+    font-size: 38px;
     font-style: normal;
     width: 100%
 }
@@ -41,8 +40,8 @@
     font-family: 'Gordita-Regular';
     font-size: 18px;
     font-style: normal;
-    font-weight: 400;
     margin-bottom: 30px;
+    font-weight: 400;
 }
 
 .contactAndIcon{
@@ -63,8 +62,6 @@
     border-radius: 8px;
     width: 100%;
     max-width: 400px;
-    /* margin-left: 0 auto;
-    margin-right: auto; */
 }
   
 
@@ -82,7 +79,7 @@
 }
 
 .left-div5 .form-group input, .form-group textarea {
-    width: 98.5%;
+    width: 94%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
@@ -117,6 +114,7 @@
     width: 100%;
     border-radius: 4px;
     cursor: pointer;
+    border: none;
 }
 
 .left-div5 .logToSign {
@@ -124,12 +122,13 @@
     margin-bottom: 5px;
     font-family: 'Gordita-Regular';
     color: #000;
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 30px;
 }
 
 .left-div5 .logToSign a{
     font-family: 'Gordita-Light';
+    text-decoration: none;
     color: #2E6EDF; 
 }
 
@@ -140,6 +139,13 @@
 
 }
 @media (max-width: 1200px){
+
+    .left-div5 {
+        width: 100%; /* Set width to 100% for responsiveness */
+        /* display: flex;
+        flex-direction: column; */
+        margin-left: 0px;
+    }
 
     .contactAndIcon{
         display: flex;
@@ -169,6 +175,11 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+    .left-div5 {
+        width: 100%; /* Set width to 100% for responsiveness */
+        margin-left: 0px;
+    }
 
     .navbar5{
         padding: 20px 50px;
