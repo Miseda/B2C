@@ -83,15 +83,15 @@
                 </div>
 
                 <div class="form-container">
-                    <form>
+                    <form method="POST" action="{{ url_for('main_bp.signup') }}">
                         <div class="form-group">
-                            <label for="fullName">Full Name</label>
-                            <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                            <label for="full_name">Full Name</label>
+                            <input type="text" id="full_Name" name="fullName" placeholder="Full Name" required>
                         </div>
 
                         <div class="form-group">
-                            <label for="number">Phone Number</label>
-                            <input type="number" id="number" name="number" placeholder="Phone Number" required>
+                            <label for="phone_number">Phone Number</label>
+                            <input type="number" id="phone_number" name="phone_number" placeholder="Phone Number" required>
                         </div>
                 
                         <div class="form-group">
@@ -105,8 +105,8 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="confirmPassword">Confirm Password</label>
-                            <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required>
+                            <label for="confirm_password">Confirm Password</label>
+                            <input type="password" id="confirm_password" name="confirmPassword" placeholder="Confirm Password" required>
                         </div>
                 
                         <div class="form-group1">

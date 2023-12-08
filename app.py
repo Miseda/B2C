@@ -1,7 +1,9 @@
-from flask import Flask
+from flask import Flask, render_template
 from mongoengine import connect
-from flask import Blueprint, render_template
 from controllers.mainController import main_bp  # Import the main_bp Blueprint
+from flask_login import LoginManager
+from models.user import User
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'
@@ -9,6 +11,15 @@ app.config['MONGODB_SETTINGS'] = {
     'db': 'B2C',
     'host': 'mongodb+srv://B2C:12345@b2c.gxyirft.mongodb.net/?retryWrites=true&w=majority',
 }
+
+# Initialize Flask-Login
+login_manager = LoginManager(app)
+login_manager.login_view = 'main_bp.login'
+
+@login_manager.user_loader
+def load_user(user_id):
+    return User.objects.get(id=user_id)
+
 
 # Register blueprints
 app.register_blueprint(main_bp)  # Register the main_bp Blueprint
