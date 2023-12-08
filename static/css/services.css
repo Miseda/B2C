@@ -231,6 +231,14 @@ body {
     gap: 150px;
 }
 
+.first-container4{
+    padding: 0px 100px;
+    display: flex;
+    align-items: center;
+    margin-top: 50px;
+    gap: 0px;
+}
+
 .right-div {
     margin-right: 80px; /* Adjust the margin as needed to increase the gap */
 }
@@ -238,6 +246,10 @@ body {
 .right-div img{
     width: 100%;
     border-radius: 10px;
+}
+
+.right-div4 img{
+    width: 100%;
 }
 
 .left-div {
@@ -665,6 +677,14 @@ footer {
     
 }
 
+.title3-4{
+    text-align: center;
+    color: white;
+    font-family: 'Gordita-Medium';
+    padding-bottom: 40px;
+    font-size: 30px;  
+}
+
 .customers{
     display: flex;
     justify-content: center;
@@ -728,10 +748,22 @@ footer {
     font-size: 18px;
 }
 
+.careerStatus{
+    text-align: center;
+    color: white;
+    font-family: 'Gordita-Light';
+    font-size: 40px;
+
+}
+
 /* Add media query for smaller screens */
 @media (max-width: 1200px) {
 
 .right-div{
+    display: none;
+}
+
+.right-div4{
     display: none;
 }
 
@@ -839,6 +871,14 @@ footer {
 }
 
 .first-container {
+    display: flex;
+    padding: 10px; /* Adjust padding for smaller screens */
+    flex-direction: column-reverse;
+    justify-content: center;
+    gap: 40;
+}
+
+.first-container4 {
     display: flex;
     padding: 10px; /* Adjust padding for smaller screens */
     flex-direction: column-reverse;
@@ -1175,6 +1215,12 @@ footer {
     font-family: 'Gordita-Regular';
     font-size: 15px;
 }
+
+.navbar{
+    padding: 20px 25px;
+}
+
+
 
 }
 }

@@ -1,0 +1,205 @@
+
+.navbar5 {
+    display: flex;
+    justify-content: space-between;
+    background-color: #ffffff;
+    padding: 20px 100px;
+    /* border-bottom: 1px solid black; */
+    box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.2);
+    height: 70px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.mainContainer{
+    padding: 0px 100px;
+    margin-top: 60px;
+    padding-bottom: 70px;
+}
+
+.left-div5 {
+    width: 100%; /* Set width to 100% for responsiveness */
+    /* display: flex;
+    flex-direction: column; */
+}
+
+.containerTitle{
+    color: #000;
+    font-family: 'Gordita-Medium';
+    font-size: 35px;
+    font-style: normal;
+    width: 100%
+}
+
+.contactDes{
+    flex-shrink: 0;
+    color: #000;
+    font-family: 'Gordita-Regular';
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+}
+
+.contactAndIcon{
+    display: flex;
+    align-items: center;
+}
+
+.left-div5 .form-container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10% 10%;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 400px;
+    /* margin-left: 0 auto;
+    margin-right: auto; */
+}
+  
+
+.left-div5 .form-group {
+    margin-bottom: 40px;
+}
+
+.left-div5 .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Gordita-Regular';
+    color: #000;
+    font-size: 16px;
+}
+
+.left-div5 .form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'Gordita-Light';
+}
+
+
+.left-div5 .form-group.textarea-group textarea {
+    height: 100px; /* Adjust the height for the textarea */
+}
+
+.left-div5 .form-group button {
+    background-color: #2E6EDF;
+    color: #fff;
+    font-family: 'Gordita-Medium';
+    padding: 10px;
+    width: 150px;
+    height: 45px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 1280px){
+    .right-div5{
+        width: 71vh;
+    }
+
+}
+@media (max-width: 1200px){
+
+    .contactAndIcon{
+        display: flex;
+        align-items: center;
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .right-div5{
+        display: none;
+    }
+
+    .left-div5 {
+        width: 100%;
+    }
+
+    .mainContainer {
+        padding: 20px 100px; /* Adjust padding for responsiveness */
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 100px;
+    }
+
+    
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    .navbar5{
+        padding: 20px 50px;
+    }
+
+    .right-div5{
+        display: none;
+    }
+
+    .containerTitle{
+        font-size: 25px;
+    }
+    
+    .contactDes{
+        font-size: 17px;
+    }
+
+    .left-div5 {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .left-div5 .form-group label {
+        font-size: 13px;
+    }
+    
+    .left-div5 .form-group input, .form-group textarea {
+        font-size: 12px;
+    }
+
+    .left-div5 .form-group button {
+        width: 100%;
+        font-size: 12px;
+    }
+
+    .left-div5 .form-group.textarea-group textarea {
+        height: 70px;
+        width: 90%;
+    }
+
+    .mainContainer {
+        padding: 20px 60px;
+        margin-top: 50px;
+        display: flex;
+        margin-right: 10px;
+        flex-direction: column;
+        padding-bottom: 100px;
+    }
+
+    .left-div5 .form-group input, .form-group textarea {
+        width: 87.5%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 15px;
+        font-family: 'Gordita-Light';
+    }
+
+    .left-div5 .form-container {
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 10% 10%;
+        border-radius: 8px;
+        width: 90%;
+        max-width: 400px;
+        margin-left: 0 auto;
+        margin-right: auto;
+    }
+
+
+}

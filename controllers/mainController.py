@@ -17,3 +17,11 @@ def IT():
 @main_bp.route('/System-Integration')
 def sys():
     return render_template('sys.html')
+
+@main_bp.route('/Careers')
+def careers():
+    return render_template('careers.html')
+
+@main_bp.route('/Contact-Us')
+def contact():
+    return render_template('contactUs.html')

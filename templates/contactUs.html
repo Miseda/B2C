@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2C</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/aboutUs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel = "icon" href ="{{ url_for('static', filename='images/Head2.png') }}" type = "image/x-icon">
 </head>
 <body>
     
-    <header class="navbar">
+    <header class="navbar5">
 
         <div class="logoAndLine">
             <div class="logo">
@@ -67,97 +67,50 @@
         
     </header>
 
-    <div class="first-container">
+    <div class="mainContainer">
 
-        <div class="left-div">
-            <div class="title1-1">
-                <p>Batanai 2 Create</p>
-            </div>
-            <div class="paragraph1-1">
-                <p>Our mission is to unleash the <br> world's untapped human <br> potential</p>
-            </div>
-            <div class="paragraph2-2">
-                <p>Who we are, what we do, how we do it, and everything else <br> about us.</p>
-            </div>
-
+        <div class="containerTitle">
+            <p>Contact Us</p>
         </div>
 
-        <div class="right-div">
-            <img src="{{ url_for('static', filename='images/About Us.png') }}" alt="About Us SVG">
+        <div class="contactDes">
+            <p>Have any questions? We’d love to hear from you.</p>
         </div>
 
-    </div>
+        <div class="contactAndIcon">
 
-    <div class="second-container">
+            <div class="left-div5">
 
-        <div class="row">
-            <div class="question">
-                <p class="q1">What is B2C?</p>
-            </div>
-            <div class="description">
-                <p class="d1"> We are a software development company helping companies and individuals bring their ideas to life through software. Based in Harare,  
-                Zimbabwe, we are extremely proud to be able to deliver an array of enterprise solutions that make a <br> difference. </p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="question">
-                <p class="q2">What does B2C do?</p>
-            </div>
-
-            <div class="description">
-                <p class="d2">We offer Application Development , IT Infrastructure and System Integration.</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="question">
-                <p class="q3">How does B2C work?</p>
-            </div>
-
-            <div class="description">
-                <p class="d3">A customer can either contact us individually or submit through the website <br>
-                what they want to be developed if they have a proof of concept.</p>
-            </div>
-        </div>
-
-    </div>
-
-    <div class="third-container1">
-        <div class="title3-3">
-            <p>B2C is trusted by companies across industries</p>
-        </div>
-
-        <div class="paragraph4-4">
-            <p>Our customers come from diverse sectors like Banking, Finance, Healthcare, ITES, FMCG, Media and entertainment, and more. As an independent and privately owned company, our culture is far-removed from any short-term logic.<p>
+                <div class="form-container">
+                    <form>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>
+                        </div>
                 
-            <p>We are about building solid long-lasting relationships across industries and have succeeded because of our relentless commitment to understating our clients’ needs.</p>
-        </div>
-
-        <div class="customers">
-            <div class="customerIcon">
-                <img src="{{ url_for('static', filename='images/Processor.svg') }}" alt="Processor SVG">
-                <p>Technology</p>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                
+                        <div class="form-group textarea-group">
+                            <label for="message">How can I help you?</label>
+                            <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+                        </div>
+                
+                        <div class="form-group">
+                            <button type="submit">Send Message</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-
-            <div class="customerIcon">
-                <img class="p" src="{{ url_for('static', filename='images/Money Box.svg') }}" alt="Processor SVG">
-                <p>Fintech</p>
-            </div>
-
-            <div class="customerIcon">
-                <img class="h" src="{{ url_for('static', filename='images/Heart.svg') }}" alt="Processor SVG">
-                <p>Health care</p>
-            </div>
-
-            <div class="customerIcon">
-                <img class="e" src="{{ url_for('static', filename='images/Cash.svg') }}" alt="Processor SVG">
-                <p>E-commerce</p>
+            
+            <div class="right-div5">
+                <img src="{{ url_for('static', filename='images/Contact.svg') }}" alt="Contacts">
             </div>
         </div>
-       
+
     </div>
-
 
     <footer>
         <div class="footer-content">

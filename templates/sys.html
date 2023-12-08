@@ -29,8 +29,8 @@
                 <a href="{{ url_for('main_bp.IT') }}">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="#">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="#">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.contact') }}">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.careers') }}">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="#">Login <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
             </div>
         </div>
@@ -47,14 +47,14 @@
                     </div>
                 </li>
                 <li><a href="{{ url_for('main_bp.aboutUs') }}">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="{{ url_for('main_bp.contact') }}">Contact Us</a></li>
             </ul>
         </nav>
 
         <div class='right-buttons'>
 
             <div class="career-btn">
-                <a href="#">Careers</a>
+                <a href="{{ url_for('main_bp.careers') }}">Careers</a>
               </div>
 
             <div class="login-btn">

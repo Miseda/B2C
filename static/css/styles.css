@@ -586,6 +586,51 @@ footer {
     width: 30px; /* Adjust the size of your social media icons */
 }
 
+.form-container {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.form-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #777;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group.textarea-group textarea {
+    height: 80px; /* Adjust the height for the textarea */
+}
+
+.form-group button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
 /* Add media query for smaller screens */
 @media (max-width: 1200px) {
 
@@ -903,7 +948,6 @@ footer {
         align-items: center;
         margin-top: 50px;
         padding-bottom: 50px;
-        padding-right: 30px;
         width: 100%;
     }
 
@@ -920,6 +964,10 @@ footer {
     
     .dropdown-menu a:hover .chevron-icon {
         transform: translateX(5px);; /* Rotate the chevron icon on hover */
+    }
+
+    .navbar{
+        padding: 20px 20px;
     }
 
 
