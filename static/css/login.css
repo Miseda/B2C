@@ -132,6 +132,26 @@
     color: #2E6EDF; 
 }
 
+.password-input-container {
+    position: relative;
+}
+
+.eye {
+    position: absolute;
+    top: 60%;
+    padding-right: 10px;
+    right: 10px;
+    align-items: center;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Adjust the eye icon size if needed */
+.eye img {
+    width: 20px;
+    height: auto;
+}
+
 @media (max-width: 1280px){
     .right-div5{
         width: 71vh;

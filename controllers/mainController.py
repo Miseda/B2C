@@ -4,6 +4,10 @@ from models.user import User
 from pymongo import MongoClient
 from flask_bcrypt import Bcrypt
 from mongoengine.errors import NotUniqueError
+from flask_mail import Mail, Message
+import secrets
+
+
 
 main_bp = Blueprint('main_bp', __name__)
 
@@ -20,6 +24,62 @@ users_collection = db['user']
 
 # Create an instance of the Bcrypt class
 bcrypt = Bcrypt()
+
+
+@main_bp.route('/reset-password', methods=['GET', 'POST'])
+def reset_password_request():
+    from app import mail  
+    if request.method == 'POST':
+        email = request.form.get('email')
+        user = users_collection.find_one({'email': email.lower()})
+        if user:
+            # Generate a reset token
+            reset_token = secrets.token_urlsafe(16)
+            user_id = str(user['_id'])
+
+            # Save the reset token to the user document
+            users_collection.update_one({'_id': user['_id']}, {'$set': {'reset_token': reset_token}})
+
+            # Send the reset email
+            reset_link = url_for('main_bp.reset_password', token=reset_token, _external=True)
+            msg = Message('Password Reset Request', sender='your-email@example.com', recipients=[email])
+            msg.body = f'To reset your password, visit the following link:\n\n{reset_link}\n\nIf you did not make this request, simply ignore this email.'
+            mail.send(msg)
+
+            flash('An email has been sent with instructions to reset your password.', 'info')
+            return redirect(url_for('main_bp.login'))
+
+        flash('No account found with that email address.', 'error')
+        return redirect(url_for('main_bp.reset_password_request'))
+
+    return render_template('resetPasswordRequest.html')
+
+@main_bp.route('/reset-password/<token>', methods=['GET', 'POST'])
+def reset_password(token):
+    user = users_collection.find_one({'reset_token': token})
+    if user:
+        if request.method == 'POST':
+            new_password = request.form.get('new_password')
+            confirm_password = request.form.get('confirm_password')
+
+            if new_password == confirm_password:
+                # Hash the new password and update the user document
+                hashed_password = bcrypt.generate_password_hash(new_password).decode('utf-8')
+                
+                # Update the user document with the new password and reset_token set to None
+                users_collection.update_one({'_id': user['_id']}, {'$set': {'password': hashed_password, 'reset_token': None}})
+
+                flash('Your password has been reset successfully. You can now log in with your new password.', 'success')
+                return redirect(url_for('main_bp.login'))
+
+            flash('Passwords do not match.', 'error')
+            return redirect(url_for('main_bp.reset_password', token=token))
+
+        return render_template('resetPassword.html', token=token)
+
+    flash('Invalid or expired reset token.', 'error')
+    return redirect(url_for('main_bp.reset_password_request'))
+
 
 @main_bp.route('/SignUp', methods=['GET', 'POST'])
 def signup():

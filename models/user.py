@@ -8,3 +8,6 @@ class User(Document, UserMixin):
     email = EmailField(unique=True, required=True)
     password = StringField(required=True)
     role = StringField(default='User')
+    
+    # Add the reset_token field
+    reset_token = StringField()
