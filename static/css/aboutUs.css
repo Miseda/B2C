@@ -192,6 +192,49 @@
 
 
 @media only screen and (max-width: 600px) {
+
+    .customers {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+        padding-top: 50px;
+    }
+
+    .right-div {
+        padding-top: 80px;
+    }
+
+    .question {
+        text-align: left;
+    }
+
+    .second-container {
+        padding: 90px 30px;
+    }
+
+    .third-container1 {
+        padding: 50px 30px;
+    }
+
+    .customerIcon img {
+        width: 100px;
+    }
+
+    .customerIcon .p {
+        width: 100px;
+    }
+
+    .customerIcon .h {
+        width: 110px;
+        margin-top: 3.5px;
+    }
+
+    .customerIcon .e {
+        width: 95px;
+    }
+
     .paragraph2-2 {
         color: #000;
         font-family: 'Gordita-Regular';
@@ -212,11 +255,4 @@
         height: 150px;
     }
 
-    .customers{
-        display: flex;
-        justify-content: center;
-        gap: 40px;
-        flex-wrap: wrap;  
-        padding-top: 50px;
-    }
 }

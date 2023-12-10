@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash
+from flask import Blueprint, render_template, redirect, url_for, request, flash, jsonify
 from flask_login import login_user, logout_user, login_required, current_user
 from models.user import User
 from pymongo import MongoClient
@@ -7,6 +7,7 @@ from mongoengine.errors import NotUniqueError
 from flask_mail import Mail, Message
 import secrets
 from flask import session
+from models.job import Job
 
 
 
@@ -195,9 +196,7 @@ def IT():
 def sys():
     return render_template('sys.html')
 
-@main_bp.route('/Careers')
-def careers():
-    return render_template('careers.html')
+
 
 @main_bp.route('/Contact-Us')
 def contact():
@@ -210,7 +209,6 @@ def login():
 @main_bp.route('/SignUp')
 def signUp():
     return render_template('signUp.html')
-
 
 
 @main_bp.route('/Logout')
@@ -234,3 +232,61 @@ def admin_dashboard():
 def user_dashboard():
     return render_template('userDashboard.html')  # Render the user dashboard template
 
+@main_bp.route('/Update-Careers', methods=['POST'])
+def updateCareers():
+    if request.method == 'POST':
+        title = request.form.get('title')
+        location = request.form.get('location')
+        job_type = request.form.get('type')
+        description = request.form.get('description')
+
+        # Validate the form data as needed
+
+        # Create a new job and save it to the database
+        new_job = Job(
+            title=title,
+            location=location,
+            type=job_type,
+            description=description
+        )
+        new_job.save()
+
+        # Serialize the new job
+        serialized_job = {
+            'id': str(new_job.id),
+            'title': new_job.title,
+            'location': new_job.location,
+            'type': new_job.type,
+            'description': new_job.description
+            # Add more fields as needed
+        }
+
+        # If it's an AJAX request, return JSON
+        if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+            return jsonify(success=True, job=serialized_job)
+
+    # If it's a regular form submission or another case, render HTML
+    jobs = Job.objects()
+    return render_template('updateCareers.html', jobs=jobs)
+
+
+@main_bp.route('/Careers')
+def careers():
+    jobs = Job.objects()
+    return render_template('careers.html', jobs=jobs)
+
+@main_bp.route('/Update-Career-Page')
+@login_required
+def updateCareer():
+    jobs = Job.objects()
+    return render_template('updateCareers.html',jobs=jobs)
+
+@main_bp.route('/delete_job/<job_id>', methods=['POST'])
+@login_required
+def delete_job(job_id):
+    job = Job.objects(id=job_id).first()
+    if job:
+        job.delete()
+        # Redirect to the updateCareers page after successful deletion
+        return redirect(url_for('main_bp.updateCareer'))
+    return jsonify(success=False, error='Job not found'), 404

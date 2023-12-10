@@ -11,3 +11,9 @@ class User(Document, UserMixin):
     
     # Add the reset_token field
     reset_token = StringField()
+    
+class Job(Document,UserMixin):
+    title = StringField(required=True)
+    location = StringField(required=True)
+    type = StringField(required=True, choices=['Site', 'Hybrid', 'Remote'])
+    description = StringField(required=True)

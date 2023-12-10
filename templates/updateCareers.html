@@ -4,15 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2C</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/careers-box.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/updateCareers.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel = "icon" href ="{{ url_for('static', filename='images/Head2.png') }}" type = "image/x-icon">
+    <!-- Include jQuery from a CDN (Content Delivery Network) -->
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-    <script src="{{ url_for('static', filename='JS/update.js') }}"></script>
+    <script src="{{ url_for('static', filename='JS/updateCareerPage.js') }}"></script>
 </head>
 <body>
     
-    <header class="navbar">
+    <header class="navbar5">
 
         <div class="logoAndLine">
             <div class="logo">
@@ -62,7 +66,7 @@
         
         <div class='right-buttons'>
             <div class="career-btn">
-                <a href="{{ url_for('main_bp.dashboard') }}">Dashboard</a>
+                <a href="{{ url_for('main_bp.careers') }}">Careers</a>
               </div>
         
             <div class="login-btn">
@@ -84,68 +88,103 @@
         
     </header>
 
-    <div class="first-container4">
-
-        <div class="left-div">
-            <div class="title1-1">
-                <p>Batanai 2 Create Careers</p>
-            </div>
-
-            <div class="title1">
-                <p>Work from with an outstanding <br> team from around the world</p>
-            </div>
-
-            <div class="paragraph1">
-                <p>We’re looking for teammates who are excited to help us achieve our mission of unleashing the world’s untapped potential.
-                      Apply for developer jobs on the B2C  team and help us build a world class company.
-                </p>
-            </div>
-
-        </div>
-
-        <div class="right-div4">
-            <img src="{{ url_for('static', filename='images/Career.svg') }}" alt="Careers">
-        </div>
-
+    <div class="flash-container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="flash-container" class="flash-container">
+                    {% for message in messages %}
+                    <div class="flash-message info">{{ message }}</div>
+             {% endfor %}
+                </div>
+            <script src="{{ url_for('static', filename='JS/flash.js') }}"></script>
+            {% endif %}
+        {% endwith %}
     </div>
 
+    <div class="mainContainer">
 
-    <div class="third-container2">
-        <div class="title3-4">
-            <p>Live Openings</p>
-        </div>
 
-        <div class="careerStatus">
-            <p>No openings at the moment</p>
-        </div>
+        <div class="contactAndIcon2">
 
-        <div class="careerDiv">
+            <div class="left-div5">
 
-            <div id="careers-page">
-                {% for job in jobs %}
-                    <div class="job-card" id="job-card-{{ job.id }}">
-                        <div class="cardTitle9">
-                            <p>{{ job.title }}</p>
+                <div class="containerTitle">
+                    <p>Update Careers Board</p>
+                </div>
+        
+                <div class="form-container">
+                    <form method="POST" action="{{ url_for('main_bp.updateCareers') }}">
+                        <div class="form-group">
+                            <label for="title">Title:</label>
+                            <input type="text" name="title" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="location">Location:</label>
+                            <input type="text" name="location" required><br>
+                        </div>
+                
+                        <div class="form-group9">
+                            <p>Type:</p>
+
+                            
+                            <input type="radio" name="type" value="On-Site" id="rad1" required><label for="rad1" >On-Site</label>
+                        
+                            <input type="radio" name="type" value="Hybrid" id="rad2" required><label for="rad2">Hybrid</label>
+                        
+                            <input type="radio" name="type" value="Remote" id="rad3" required><label for="rad3">Remote</label> 
+                        
+                        </div>
+
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea name="description" rows="4" cols="50" required></textarea>
+                        </div>
+                
+                        <div class="form-group2">
+                            <button type="submit" value="Add Job">UPDATE</button>
                         </div>
                         
-                        <div class="descLine">
-                            <img src="{{ url_for('static', filename='images/Location.svg') }}" alt="Careers">
-                            <p>{{ job.type }} - {{ job.location }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
+                    </form>
+                </div>
             </div>
+
             
+            
+            <div class="right-div9">
+                
+                <div class="careerBox">
+
+                    <div class="careerStatus">
+                        <p>No careers Added</p>
+                    </div>
+            
+                        <div id="careers-page">
+                            {% for job in jobs %}
+                                <div class="job-card" id="job-card-{{ job.id }}">
+                                    <div class="cardTitle9">
+                                        <p>{{ job.title }}</p>
+                                    </div>
+                                    
+                                    <div class="descLine">
+                                        <img src="{{ url_for('static', filename='images/Location.svg') }}" alt="Careers">
+                                        <p>{{ job.type }} - {{ job.location }}</p>
+                                    </div>
+
+                                    <div class="delete-btn">
+                                        <form method="POST" action="/delete_job/{{ job.id }}" class="delete-form">
+                                            <input type="submit" value="DELETE">
+                                        </form>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+                </div>
+            </div>
         </div>
 
-
-        
     </div>
-
-    </div>
-
-    
-
 
     <footer>
         <div class="footer-content">

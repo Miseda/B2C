@@ -84,6 +84,10 @@ body {
     margin-bottom: 15px;
 }
 
+.left-div5 .form-group input[type="radio"] {
+    vertical-align: middle;
+}
+
 .left-div5 .form-group input, .form-group textarea {
     width: 94%;
     padding: 10px;
@@ -339,7 +343,7 @@ body {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 10% 10%;
         border-radius: 8px;
-        width: 90%;
+        width: 84%;
         max-width: 400px;
         margin-left: 0 auto;
         margin-right: auto;
