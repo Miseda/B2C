@@ -6,6 +6,8 @@ from flask_bcrypt import Bcrypt
 from mongoengine.errors import NotUniqueError
 from flask_mail import Mail, Message
 import secrets
+from flask import session
+
 
 
 
@@ -93,8 +95,8 @@ def signup():
         # Check if a user with the same email already exists
         existing_user = users_collection.find_one({'email': email})
         if existing_user:
-            error = 'Email already exists. Please use a different email.'
-            return render_template('signUp.html', error=error)
+            flash ('Email already exists. Please use a different email.')
+            return render_template('signUp.html')
 
         # Check if passwords match
         if password != confirm_password:
@@ -134,6 +136,9 @@ def login_post():
         if user and bcrypt.check_password_hash(user.get('password', ''), password):
             user_obj = User.objects.get(id=str(user['_id']))  # Retrieve the User object based on the ObjectId
             login_user(user_obj)
+            
+            # Store the user's role in the session
+            session['user_role'] = user_obj.role
 
             # Redirect to the appropriate page based on the user's role
             return redirect(url_for('main_bp.admin_dashboard' if current_user.role == 'Admin' else 'main_bp.user_dashboard'))
@@ -144,6 +149,15 @@ def login_post():
     # Handle GET request (e.g., if someone tries to access the route directly without submitting the form)
     return render_template('login.html')
 
+@main_bp.route('/Dashboard')
+@login_required
+def dashboard():
+    user_role = session.get('user_role', 'User')  # Get the user's role from the session
+
+    if user_role == 'Admin':
+        return render_template('adminDashboard.html')  # Render the admin dashboard template
+    else:
+        return render_template('userDashboard.html')  # Render the user dashboard template
 
 
 @main_bp.route('/InsertAdmin')  # This route is just for one-time use to insert the admin user

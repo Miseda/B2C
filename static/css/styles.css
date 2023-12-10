@@ -110,12 +110,14 @@ body {
     display: block;
 }
 
+
 .right-buttons {
     display: flex;
     align-items: center;
     gap: 30px;
     padding-top: 7px;
 }
+
 
 .login-btn a{
     display: inline-block;
@@ -548,6 +550,7 @@ footer {
     background-color: black; /* Add background color as needed */
     text-align: left;
     padding: 30px 100px; /* Adjust padding as needed */
+    bottom: 0;
     font-size: 15px;
     font-family: 'Gordita-Medium';
     color: #ffffff;
@@ -648,7 +651,7 @@ footer {
     }
 
     .nav-menu,
-    .right-buttons {
+    .right-buttons{
         display: none;
     }
 

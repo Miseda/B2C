@@ -31,7 +31,11 @@
                 <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.contact') }}">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.careers') }}">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                {% if current_user.is_authenticated %}
+                <a href="{{ url_for('main_bp.logout') }}">Log Out<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                {% else %}
                 <a href="{{ url_for('main_bp.login') }}">Login <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                {% endif %}
             </div>
         </div>
         
@@ -51,18 +55,29 @@
             </ul>
         </nav>
 
+        {% if current_user.is_authenticated %}
+        
         <div class='right-buttons'>
+            <div class="career-btn">
+                <a href="{{ url_for('main_bp.dashboard') }}">Dashboard</a>
+              </div>
+        
+            <div class="login-btn">
+                <a href="{{ url_for('main_bp.logout') }}">Log Out</a>
+            </div>
+        
 
+        {% else %}
+        <div class='right-buttons'>
             <div class="career-btn">
                 <a href="{{ url_for('main_bp.careers') }}">Careers</a>
               </div>
 
             <div class="login-btn">
                 <a href="{{ url_for('main_bp.login') }}">Login</a>
-              </div>
-
-
+              </div>    
         <div>
+        {% endif %}
         
     </header>
 

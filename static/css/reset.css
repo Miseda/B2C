@@ -1,0 +1,71 @@
+.theForms{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.title6{
+    font-size: 20px;
+    font-family: Gordita-Bold;
+    padding-bottom: 100px;
+
+}
+
+.title7{
+    font-size: 20px;
+    font-family: Gordita-Bold;
+    padding-bottom: 10px;
+
+}
+
+.form-group6 {
+    margin-bottom: 40px;
+}
+
+.form-container6 {
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 50px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+ .form-group6 button {
+    background-color: #2E6EDF;
+    color: #fff;
+    font-family: 'Gordita-Light';
+    padding: 10px;
+    margin-top: 100px;
+    height: 45px;
+    max-width: 1000px;
+    margin-top: 5px;
+    width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+
+ .form-group6 label {
+    display: block;
+    margin-bottom: 5px;
+    font-family: 'Gordita-Regular';
+    color: #000;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+ .form-group6 input, .form-group6 textarea {
+    width: 94%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+    font-family: 'Gordita-Light';
+}
+
+
+.form-group6.textarea-group textarea {
+    height: 100px; /* Adjust the height for the textarea */
+}

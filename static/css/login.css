@@ -1,4 +1,10 @@
 
+
+
+body {
+    margin: 0;
+}
+
 .navbar5 {
     display: flex;
     justify-content: space-between;
@@ -111,7 +117,27 @@
     padding: 10px;
     height: 45px;
     max-width: 1000px;
+    margin-top: 5px;
     width: 100%;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.form-group2{
+    display: flex;
+    flex-direction: row;
+    gap: 70px;
+}
+
+.left-div5 .form-group2 button {
+    background-color: #2E6EDF;
+    color: #fff;
+    font-family: 'Gordita-Light';
+    padding: 10px;
+    height: 45px;
+    max-width: 1000px;
+    width: 40%;
     border-radius: 4px;
     cursor: pointer;
     border: none;
@@ -120,16 +146,24 @@
 .left-div5 .logToSign {
     width: 100%;
     margin-bottom: 5px;
+    text-align: center;
     font-family: 'Gordita-Regular';
     color: #000;
     font-size: 16px;
-    margin-top: 30px;
+    margin-top: 40px;
 }
 
 .left-div5 .logToSign a{
-    font-family: 'Gordita-Light';
+    font-family: 'Gordita-Medium';
     text-decoration: none;
     color: #2E6EDF; 
+}
+
+.left-div5 .forgot a{
+    font-family: 'Gordita-Regular';
+    text-decoration: none;
+    font-size: 16px;
+    color: gray; 
 }
 
 .password-input-container {
@@ -157,8 +191,37 @@
         width: 71vh;
     }
 
+    footer {
+        background-color: black;
+        text-align: left;
+        padding: 30px 100px;
+        font-size: 15px;
+        bottom: 0;
+        font-family: 'Gordita-Medium';
+        color: #ffffff;
+    }
+
 }
 @media (max-width: 1200px){
+
+    footer {
+        margin-top: 190px;
+        background-color: black; /* Add background color as needed */
+        text-align: left;
+        padding: 35px 100px; /* Adjust padding as needed */
+        font-size: 15px;
+        font-family: 'Gordita-Medium';
+        color: #ffffff;
+    }
+
+    /* footer {
+        background-color: black;
+        text-align: left;
+        font-size: 15px;
+        bottom: 0;
+        font-family: 'Gordita-Medium';
+        color: #ffffff;
+    } */
 
     .left-div5 {
         width: 100%; /* Set width to 100% for responsiveness */
@@ -195,6 +258,19 @@
 }
 
 @media only screen and (max-width: 600px) {
+
+
+
+    .left-div5 .form-group2 button {
+        width: 100%;
+    }
+
+    .form-group2{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
 
     .left-div5 {
         width: 100%; /* Set width to 100% for responsiveness */

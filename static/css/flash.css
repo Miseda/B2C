@@ -1,0 +1,31 @@
+/* flash.css */
+
+.flash-container {
+    position: fixed;
+    top: 120px; /* Adjust this value to position it below the navigation bar */
+    right: 0;
+    width: 300px; /* Adjust the width as needed */
+    display: flex;
+    justify-content: flex-end;
+    z-index: 9999; /* Ensure the flash card appears above other elements */
+}
+
+.flash-message {
+    background-color: white; /* Set the background color to white */
+    color: #333; /* Set the font color to a dark color */
+    padding: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 1rem;
+    text-align: center;
+    font-family: 'Gordita-Light', sans-serif; /* Use the Gordita-Light font */
+    animation: fadeInOut 4s ease-out; /* Adjust the animation duration as needed */
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+}

@@ -8,7 +8,7 @@
 
 body {
     margin: 0;
-    padding: 0;
+    
 }
 
 .logoAndLine{
@@ -756,6 +756,27 @@ footer {
 /* Add media query for smaller screens */
 @media (max-width: 1200px) {
 
+    .boxes{
+        display: flex;
+        gap: 0px;
+        justify-content: center;
+        margin-top: 25px;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+
+    .box{
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 50px 20px;
+    }
+
+    
+
 .right-div{
     display: none;
 }
@@ -953,18 +974,10 @@ footer {
 .box-description{
     color: #9B9B9B;
     font-family: 'Gordita-Regular';
-    font-size: 10px;
+    font-size: 14px;
     font-style: normal;
 }
 
-.boxes{
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    margin-top: 25px;
-    flex-wrap: wrap;
-
-}
 
 .customers{
     display: flex;

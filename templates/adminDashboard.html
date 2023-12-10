@@ -1,2 +1,136 @@
-<h1>Welcome Admin</h1>
-<a href="{{ url_for('main_bp.logout') }}">Logout</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2C</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/services.css') }}">
+    <link rel = "icon" href ="{{ url_for('static', filename='images/Head2.png') }}" type = "image/x-icon">
+</head>
+<body>
+
+    <div class = "page-container">
+
+    
+        
+        <header class="navbar">
+
+            <div class="logoAndLine">
+                <div class="logo">
+                    <img src="{{ url_for('static', filename='images/logo2.png') }}" alt="B2C Logo">
+                </div>
+        
+                <div class="line1">
+                    <img src="{{ url_for('static', filename='images/Line2.png') }}" alt="B2C Logo">
+                </div>
+            </div>
+
+            <div class="burger-menu">
+                <img class="burger-icon" src="{{ url_for('static', filename='images/Menu.svg') }}" alt="Burger Icon">
+                <div class="burger-dropdown">
+                    <a href="{{ url_for('landing_page') }}">Home <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.appDev') }}">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.IT') }}">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.contact') }}">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.careers') }}">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                    <a href="{{ url_for('main_bp.logout') }}">Log Out <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="{{ url_for('landing_page') }}">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#">Services <img class="down-button" src="{{ url_for('static', filename='images/dropdown.svg') }}" alt="Dropdown Icon"></a>
+                        <div class="dropdown-menu">
+                            <a href="{{ url_for('main_bp.appDev') }}">Application Development <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                            <a href="{{ url_for('main_bp.IT') }}">IT Structures <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                            <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                        </div>
+                    </li>
+                    <li><a href="{{ url_for('main_bp.aboutUs') }}">About Us</a></li>
+    
+                </ul>
+            </nav>
+
+            <div class='right-buttons'>
+
+                <div class="career-btn">
+                    <a href="{{ url_for('main_bp.careers') }}">Challange Board</a>
+                </div>
+
+                <div class="login-btn">
+                    <a href="{{ url_for('main_bp.logout') }}">Log Out</a>
+                </div>
+
+
+            </div>
+            
+        </header>
+
+        
+        <div class="first-container8">
+        
+            <div class="left-div8">
+
+                <div class="title8">
+                    <p>Welcome Admin,</p>
+                </div>
+
+                <div class="left-div-btns2">
+
+                    <div class="upd-car-btn">
+                        <a href="#">UPDATE CAREERS</a>
+                    </div>
+
+                    <div class="upd-chall-btn">
+                        <a href="#">UPDATE CHALLANGE BOARD</a>
+                    </div>
+
+                    <div class="upd-car-btn">
+                        <a href="#">CUSTOMER REPORTS</a>
+                    </div>
+        
+                </div>
+
+            </div>
+
+            <div class="right-div8">
+                <div class="title9">
+                    <p>Welcome <span class="Admin">Admin</span> <span class="comma">,</span></p>
+                </div>
+
+                <img src="{{ url_for('static', filename='images/Admin.svg') }}" alt="Admin dashboard">
+            </div>
+
+        </div>
+    </div>
+    
+
+    <footer>
+        <div class="footer-content">
+            <div class="location">
+                <p>Udugu Open House<br>42 Harvey Brown Milton Park Harare </p>
+                <p>+263 242 250 602</p>
+
+            </div>
+            <div class="socials">
+                <p>Join Us On Social Media </p>
+
+                <div class="social-icons">
+                    <img class="fb" src="{{ url_for('static', filename='images/Facebook.png') }}" alt="Facebook">
+                    <img class="x" src="{{ url_for('static', filename='images/X.png') }}" alt="X">
+                    <img class="wa" src="{{ url_for('static', filename='images/Whatsapp.png') }}" alt="Whatsapp">
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+
+    
+
+</body>
+</html>
