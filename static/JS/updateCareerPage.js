@@ -1,22 +1,33 @@
 // Function to add a new job card
 function addJobCard(job, callback) {
+    // Use the HTML content stored in the hidden input field
+    var jobDescriptionHtml = $('#hidden-description').val();
+
     var newCard = `
-        <div class="job-card" id="job-card-${job.id}">
-            <h3>${job.title}</h3>
-            <p>${job.location} - ${job.type}</p>
-            <p>${job.description}</p>
-            <button class="delete-button" data-job-id="${job.id}">Delete</button>
-            <a href="/view_job/${job.id}">View Details</a>
-        </div>
+        <a href="{{ url_for('main_bp.job_details', job_id=job.id) }}" class="job-card" id="job-card-${job.id}">
+            <div class="job-card" id="job-card-${job.id}">
+                <h3>${job.title}</h3>
+                <p>${job.location} - ${job.type}</p>
+                <div class="job-description">${jobDescriptionHtml}</div>
+                <button class="delete-button" data-job-id="${job.id}">Delete</button>
+                <a href="/view_job/${job.id}">View Details</a>
+            </div>
+        </a>
     `;
-    $('#new-job-cards').append(newCard);
+
+    var newCardElement = $(newCard);
+
+    // Append the new job card
+    $('#new-job-cards').append(newCardElement);
 
     // Update the careers page with the new job
-    $('#careers-page').append(newCard);
+    $('#careers-page').append(newCardElement);
 
     // Execute the callback function after adding the job card
     callback();
 }
+
+
 
 // Function to check and update the visibility of the careerStatus message
 
@@ -86,4 +97,45 @@ $(document).on('click', '.delete-button', function (e) {
 // Check and update the visibility of the careerStatus message on page load
 $(document).ready(function () {
     updateCareerStatusVisibility();
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const descriptionTextarea = document.getElementById('description-markdown');
+    
+    // Add an input event listener to update the textarea value with the rendered HTML
+    descriptionTextarea.addEventListener('input', function () {
+        const markdownText = descriptionTextarea.value;
+        const htmlText = marked(markdownText);
+        descriptionTextarea.innerHTML = htmlText;
+    });
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+    const quill = new Quill('#quill-editor', {
+        theme: 'snow',
+        modules: {
+            toolbar: [
+                ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
+                ['blockquote', 'code-block'],
+                [{ 'header': 1 }, { 'header': 2 }],               // custom button values
+                [{ 'list': 'ordered' }, { 'list': 'bullet' }],
+                [{ 'script': 'sub' }, { 'script': 'super' }],    // superscript/subscript
+                [{ 'indent': '-1' }, { 'indent': '+1' }],        // outdent/indent
+                [{ 'direction': 'rtl' }],                        // text direction
+                [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
+                [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+                [{ 'color': [] }, { 'background': [] }],         // dropdown with defaults from theme
+                [{ 'font': [] }],
+                [{ 'align': [] }],
+                ['clean'],                                       // remove formatting button
+                ['link', 'image', 'video']                       // link, image, video
+            ]
+        }
+    });
+
+    // Listen for changes and update the hidden input
+    quill.on('text-change', function () {
+        const html = quill.root.innerHTML;
+        document.getElementById('hidden-description').value = html;
+    });
 });

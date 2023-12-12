@@ -9,6 +9,8 @@ import secrets
 from flask import session
 from models.job import Job
 
+from models.appDev import Request
+
 
 
 
@@ -142,7 +144,7 @@ def login_post():
             session['user_role'] = user_obj.role
 
             # Redirect to the appropriate page based on the user's role
-            return redirect(url_for('main_bp.admin_dashboard' if current_user.role == 'Admin' else 'main_bp.user_dashboard'))
+            return redirect(url_for('main_bp.admin_dashboard' if current_user.role == 'Admin' else 'main_bp.submitRequest'))
 
         flash('Invalid email or password', 'error')
         return redirect(url_for('main_bp.login'))
@@ -158,7 +160,7 @@ def dashboard():
     if user_role == 'Admin':
         return render_template('adminDashboard.html')  # Render the admin dashboard template
     else:
-        return render_template('userDashboard.html')  # Render the user dashboard template
+        return render_template('submitRequest.html')  # Render the user dashboard template
 
 
 @main_bp.route('/InsertAdmin')  # This route is just for one-time use to insert the admin user
@@ -227,10 +229,10 @@ def admin_dashboard():
         flash('You do not have permission to access the admin dashboard.', 'error')
         return redirect(url_for('main_bp.landing_page'))
 
-@main_bp.route('/User-Dashboard')
-@login_required
-def user_dashboard():
-    return render_template('userDashboard.html')  # Render the user dashboard template
+# @main_bp.route('/User-Dashboard')
+# @login_required
+# def user_dashboard():
+#     return render_template('userDashboard.html')  # Render the user dashboard template
 
 @main_bp.route('/Update-Careers', methods=['POST'])
 def updateCareers():
@@ -239,6 +241,8 @@ def updateCareers():
         location = request.form.get('location')
         job_type = request.form.get('type')
         description = request.form.get('description')
+        website = request.form.get('website')  # New field for the website link
+        
 
         # Validate the form data as needed
 
@@ -247,7 +251,8 @@ def updateCareers():
             title=title,
             location=location,
             type=job_type,
-            description=description
+            description=description,
+            website=website
         )
         new_job.save()
 
@@ -290,3 +295,139 @@ def delete_job(job_id):
         # Redirect to the updateCareers page after successful deletion
         return redirect(url_for('main_bp.updateCareer'))
     return jsonify(success=False, error='Job not found'), 404
+
+@main_bp.route('/job_details/<job_id>')
+def job_details(job_id):
+    job = Job.objects(id=job_id).first()
+
+    if job:
+        return render_template('job_details.html', job=job)
+
+    flash('Job not found.', 'error')
+    return redirect(url_for('main_bp.careers'))
+
+
+@main_bp.route('/Submit-Request', methods=['POST'])
+@login_required
+def submit_request():
+    if request.method == 'POST':
+        title = request.form.get('title')
+        support_type = request.form.getlist('support_type')  # Get all selected values as a list
+        description = request.form.get('description')
+
+        # Get the user details from the session
+        user = current_user._get_current_object()
+
+        # Create a new support request
+        new_request = Request(
+            title=title,
+            support_type=support_type,
+            description=description,
+            user=user
+        )
+        new_request.save()
+
+        flash('Your support request has been submitted successfully.', 'success')
+        return redirect(url_for('main_bp.submitRequest'))
+
+    # Handle other cases (GET request)
+    return render_template('submitRequest.html')
+
+
+@main_bp.route('/Update-Challenge-Board')
+@login_required
+def update_challange_board():
+    if request.method == 'POST':
+        # Handle the accepted request
+        request_id = request.form.get('request_id')
+        request_obj = Request.objects(id=request_id).first()
+
+        if request_obj:
+            request_obj.status = 'Accepted'
+            request_obj.save()
+            flash('Request accepted successfully.', 'success')
+
+    # Fetch requests (accepted and not accepted) for rendering
+    requests = Request.objects().all()
+
+    return render_template('updateChallangeBoard.html', requests=requests)
+
+@main_bp.route('/Request/<request_id>')
+@login_required
+def view_request(request_id):
+    # Retrieve the specific support request
+    request_obj = Request.objects(id=request_id).first()
+
+    if not request_obj:
+        flash('Support request not found.', 'error')
+        return redirect(url_for('main_bp.update_challange_board'))
+
+    return render_template('viewRequest.html', request_obj=request_obj)
+
+# mainController.py
+
+# Import the Request model
+
+
+# ... (your existing imports)
+
+@main_bp.route('/Accept-Request/<request_id>', methods=['POST'])
+@login_required
+def accept_request(request_id):
+    # Implement logic to mark the request as accepted
+    request_obj = Request.objects(id=request_id).first()
+
+    if request_obj:
+        # Implement logic to mark the request as accepted, e.g., set a status field
+        request_obj.status = 'Accepted'
+        request_obj.save()
+        flash('Request accepted successfully.', 'success')
+
+    return redirect(url_for('main_bp.update_challange_board'))
+
+
+@main_bp.route('/Challange-Board')
+@login_required
+def challange_board():
+    # Retrieve all accepted support requests
+    accepted_requests = Request.objects(status='Accepted')
+
+    return render_template('challangeBoard.html', accepted_requests=accepted_requests)
+
+@main_bp.route('/Submit-Request-Page')
+def submitRequest():
+    return render_template('submitRequest.html')
+
+@main_bp.route('/Reject-Request/<request_id>', methods=['POST'])
+@login_required
+def reject_request(request_id):
+    # Implement logic to mark the request as rejected or delete it
+    request_obj = Request.objects(id=request_id).first()
+
+    if request_obj:
+        # Implement logic to mark the request as rejected, e.g., set a status field
+        request_obj.status = 'Rejected'
+        request_obj.save()
+
+        # Alternatively, you can delete the request
+        request_obj.delete()
+        flash('Request deleted successfully.', 'info')
+
+    return redirect(url_for('main_bp.update_challange_board'))
+
+@main_bp.route('/accepted-request/<request_id>')
+@login_required
+def view_accepted_request(request_id):
+    # Retrieve the specific accepted support request
+    request_obj = Request.objects(id=request_id, status='Accepted').first()
+
+    if not request_obj:
+        flash('Accepted support request not found.', 'error')
+        return redirect(url_for('main_bp.update_challange_board'))
+
+    return render_template('viewAcceptedRequest.html', request_obj=request_obj)
+
+
+
+
+

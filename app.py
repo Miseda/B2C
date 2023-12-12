@@ -4,6 +4,7 @@ from controllers.mainController import main_bp  # Import the main_bp Blueprint
 from flask_login import LoginManager
 from models.user import User
 from flask_mail import Mail
+from models.appDev import Request
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your_secret_key_here'

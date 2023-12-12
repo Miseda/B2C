@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2C</title>
-    
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/submit.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/updateCareers.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}">
@@ -116,39 +117,43 @@
 
         <div class="contactAndIcon2">
 
-            <div class="left-div5">
+            <div class="left-div6">
 
                 <div class="containerTitle">
-                    <p>Update Careers Board</p>
+                    <p>Describe your Project</p>
                 </div>
         
                 <div class="form-container">
-                    <form method="POST" action="{{ url_for('main_bp.updateCareers') }}">
+                    <form method="POST" action="{{ url_for('main_bp.submit_request') }}">
                         <div class="form-group">
                             <label for="title">Title:</label>
                             <input type="text" name="title" required>
                         </div>
-
-                        <div class="form-group">
-                            <label for="location">Location:</label>
-                            <input type="text" name="location" required><br>
-                        </div>
+                        
                 
                         <div class="form-group9">
-                            <p>Type:</p>
+                            <p>What support would you need in your growth?</p>
 
+                            <input type="checkbox" name="support_type" value="Co-Working" id="chk1" ><label for="chk1" >Co-Working</label>
+
+                            <input type="checkbox" name="support_type" value="Incubation" id="chk2" ><label for="chk2" >Incubation</label>
+
+                            <input type="checkbox" name="support_type" value="Acceleration" id="chk3" ><label for="chk3" >Acceleration</label>
                             
-                            <input type="radio" name="type" value="On-Site" id="rad1" required><label for="rad1" >On-Site</label>
+                            <input type="checkbox" name="support_type" value="Joining an Alumini Community" id="chk4" ><label for="chk4" >Joining an Alumini Community</label>
                         
-                            <input type="radio" name="type" value="Hybrid" id="rad2" required><label for="rad2">Hybrid</label>
-                        
-                            <input type="radio" name="type" value="Remote" id="rad3" required><label for="rad3">Remote</label> 
-                        
-                        </div>
+                            <input type="checkbox" name="support_type" value="Mentorship program" id="chk5" ><label for="chk5">Mentorship program</label>
+                     
+                            <input type="checkbox" name="support_type" value="Access to financing" id="chk6" ><label for="chk6">Access to financing</label> 
 
-                        <div class="form-group">
-                            <label for="website">Third-Party Link:</label>
-                            <input type="text" name="website">
+                            <input type="checkbox" name="support_type" value="Office space" id="chk7" ><label for="chk7">Office space</label> 
+
+                            <input type="checkbox" name="support_type" value="Linking with industry players" id="chk8" ><label for="chk8">Linking with industry players</label>
+
+                            <input type="checkbox" name="support_type" value="Technology and Research" id="chk9" ><label for="chk9">Technology and Research</label>
+
+                            <input type="checkbox" name="support_type" value="Access to global market" id="chk10" ><label for="chk10">Access to global market</label>
+                        
                         </div>
 
                         <div class="form-group">
@@ -167,36 +172,9 @@
 
             
             
-            <div class="right-div9">
-                
-                <div class="careerBox">
+            <div class="right-div10">
+                <img src="{{ url_for('static', filename='images/Admin.svg') }}" alt="Admin dashboard">
 
-                    <div class="careerStatus">
-                        <p>No careers Added</p>
-                    </div>
-            
-                        <div id="careers-page">
-                            {% for job in jobs %}
-                                <div class="job-card" id="job-card-{{ job.id }}">
-                                    <div class="cardTitle9">
-                                        <p>{{ job.title }}</p>
-                                    </div>
-                                    
-                                    <div class="descLine">
-                                        <img src="{{ url_for('static', filename='images/Location.svg') }}" alt="Careers">
-                                        <p>{{ job.type }} - {{ job.location }}</p>
-                                    </div>
-
-                                    <div class="delete-btn">
-                                        <form method="POST" action="/delete_job/{{ job.id }}" class="delete-form">
-                                            <input type="submit" value="DELETE">
-                                        </form>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                        </div>
-
-                </div>
             </div>
         </div>
 
@@ -226,3 +204,4 @@
 
 </body>
 </html>
+

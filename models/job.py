@@ -6,3 +6,5 @@ class Job(Document,UserMixin):
     location = StringField(required=True)
     type = StringField(required=True, choices=['On-Site', 'Hybrid', 'Remote'])
     description = StringField(required=True)
+    website = StringField()
+    
