@@ -21,7 +21,7 @@ app.config['MAIL_PORT'] = 465  # Use port 465 for SSL
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 app.config['MAIL_USERNAME'] = 'batanai2create@gmail.com'  # Replace with your Gmail email
-app.config['MAIL_PASSWORD'] = 'gkzi ccfo rcep qgio'  # Replace with your Gmail password
+app.config['MAIL_PASSWORD'] = 'ieso tgei jrlf xsqy'  # Replace with your Gmail password
 
 
 mail = Mail(app)
