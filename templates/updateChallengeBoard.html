@@ -44,8 +44,9 @@
                 <a href="{{ url_for('main_bp.careers') }}">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 {% if current_user.is_authenticated %}
                 <a href="{{ url_for('main_bp.contact_reports') }}">Contact Reports <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                <a href="{{ url_for('main_bp.logout') }}">Log Out<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.challenge_board') }}">Challenge Board<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.dashboard') }}">Dashboard<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.logout') }}">Log Out<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 {% else %}
                 <a href="{{ url_for('main_bp.login') }}">Login <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 {% endif %}

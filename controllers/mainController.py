@@ -143,14 +143,18 @@ def login_post():
         password = request.form.get('password')
 
         # Find the user by email
-        user = User.objects(email=email.lower()).first()
+        user = users_collection.find_one({'email': email.lower()})
 
         # Check if the user exists and the password is correct
-        if user and bcrypt.check_password_hash(user.password, password):
-            login_user(user)
+        if user and bcrypt.check_password_hash(user.get('password', ''), password):
+            user_obj = User.objects.get(id=str(user['_id']))  # Retrieve the User object based on the ObjectId
+            login_user(user_obj)
+            
+            # Store the user's role in the session
+            session['user_role'] = user_obj.role
 
             # Redirect to the appropriate page based on the user's role
-            return redirect(url_for('main_bp.admin_dashboard' if current_user.is_admin() else 'main_bp.user_dashboard'))
+            return redirect(url_for('main_bp.admin_dashboard' if current_user.role == 'Admin' else 'main_bp.user_dashboard'))
 
         flash('Invalid email or password', 'error')
         return redirect(url_for('main_bp.login'))
@@ -230,7 +234,7 @@ def logout():
 @login_required
 @admin_required
 def admin_dashboard():
-    if current_user.email == 'admin@b2c.com' or 'batanai2create@gmail.com' :
+    if current_user.email == 'admin@b2c.com' or 'batanai2create@gmail.com':
         return render_template('adminDashboard.html')  # Render the admin dashboard template
     else:
         flash('You do not have permission to access the admin dashboard.', 'error')
@@ -281,6 +285,7 @@ def updateCareers():
 
     # If it's a regular form submission or another case, render HTML
     jobs = Job.objects()
+    flash('Career page updated successfully.')
     return render_template('updateCareers.html', jobs=jobs)
 
 
