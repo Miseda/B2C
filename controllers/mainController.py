@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, redirect, url_for, request, flash, jsonify
+from flask import Blueprint, render_template, redirect, url_for, request, flash, jsonify, abort
 from flask_login import login_user, logout_user, login_required, current_user
 from models.user import User
 from pymongo import MongoClient
@@ -8,8 +8,10 @@ from flask_mail import Mail, Message
 import secrets
 from flask import session
 from models.job import Job
-
+from functools import wraps
 from models.appDev import Request
+from models.contact_report import ContactReport
+
 
 
 
@@ -30,6 +32,14 @@ users_collection = db['user']
 # Create an instance of the Bcrypt class
 bcrypt = Bcrypt()
 
+def admin_required(fn):
+    @wraps(fn)
+    def wrapper(*args, **kwargs):
+        if not current_user.is_authenticated or not current_user.is_admin():
+            abort(403)  # Forbidden
+        return fn(*args, **kwargs)
+
+    return wrapper
 
 @main_bp.route('/reset-password', methods=['GET', 'POST'])
 def reset_password_request():
@@ -158,9 +168,9 @@ def dashboard():
     user_role = session.get('user_role', 'User')  # Get the user's role from the session
 
     if user_role == 'Admin':
-        return render_template('adminDashboard.html')  # Render the admin dashboard template
+        return redirect(url_for('main_bp.admin_dashboard'))  # Render the admin dashboard template
     else:
-        return render_template('submitRequest.html')  # Render the user dashboard template
+        return redirect(url_for('main_bp.user_dashboard'))  # Render the user dashboard template
 
 
 @main_bp.route('/InsertAdmin')  # This route is just for one-time use to insert the admin user
@@ -222,6 +232,7 @@ def logout():
 
 @main_bp.route('/Admin-Dashboard')
 @login_required
+@admin_required
 def admin_dashboard():
     if current_user.email == 'admin@b2c.com':
         return render_template('adminDashboard.html')  # Render the admin dashboard template
@@ -235,6 +246,8 @@ def admin_dashboard():
 #     return render_template('userDashboard.html')  # Render the user dashboard template
 
 @main_bp.route('/Update-Careers', methods=['POST'])
+@login_required
+@admin_required
 def updateCareers():
     if request.method == 'POST':
         title = request.form.get('title')
@@ -282,12 +295,14 @@ def careers():
 
 @main_bp.route('/Update-Career-Page')
 @login_required
+@admin_required
 def updateCareer():
     jobs = Job.objects()
     return render_template('updateCareers.html',jobs=jobs)
 
 @main_bp.route('/delete_job/<job_id>', methods=['POST'])
 @login_required
+@admin_required
 def delete_job(job_id):
     job = Job.objects(id=job_id).first()
     if job:
@@ -297,6 +312,8 @@ def delete_job(job_id):
     return jsonify(success=False, error='Job not found'), 404
 
 @main_bp.route('/job_details/<job_id>')
+@login_required
+@admin_required
 def job_details(job_id):
     job = Job.objects(id=job_id).first()
 
@@ -336,7 +353,8 @@ def submit_request():
 
 @main_bp.route('/Update-Challenge-Board')
 @login_required
-def update_challange_board():
+@admin_required
+def update_challenge_board():
     if request.method == 'POST':
         # Handle the accepted request
         request_id = request.form.get('request_id')
@@ -350,17 +368,18 @@ def update_challange_board():
     # Fetch requests (accepted and not accepted) for rendering
     requests = Request.objects().all()
 
-    return render_template('updateChallangeBoard.html', requests=requests)
+    return render_template('updateChallengeBoard.html', requests=requests)
 
 @main_bp.route('/Request/<request_id>')
 @login_required
+@admin_required
 def view_request(request_id):
     # Retrieve the specific support request
     request_obj = Request.objects(id=request_id).first()
 
     if not request_obj:
         flash('Support request not found.', 'error')
-        return redirect(url_for('main_bp.update_challange_board'))
+        return redirect(url_for('main_bp.update_challenge_board'))
 
     return render_template('viewRequest.html', request_obj=request_obj)
 
@@ -373,6 +392,7 @@ def view_request(request_id):
 
 @main_bp.route('/Accept-Request/<request_id>', methods=['POST'])
 @login_required
+@admin_required
 def accept_request(request_id):
     # Implement logic to mark the request as accepted
     request_obj = Request.objects(id=request_id).first()
@@ -383,16 +403,27 @@ def accept_request(request_id):
         request_obj.save()
         flash('Request accepted successfully.', 'success')
 
-    return redirect(url_for('main_bp.update_challange_board'))
+    return redirect(url_for('main_bp.update_challenge_board'))
 
-
-@main_bp.route('/Challange-Board')
+@main_bp.route('/User-Dashboard')
 @login_required
-def challange_board():
+def user_dashboard():
+    # Get the current user's full name
+    full_name = current_user.full_name
+
+    # Extract the first name (portion before the first space)
+    first_name = full_name.split(' ')[0] if ' ' in full_name else full_name
+
+    return render_template('userDashboard.html', first_name=first_name)
+
+
+@main_bp.route('/Challenge-Board')
+@login_required
+def challenge_board():
     # Retrieve all accepted support requests
     accepted_requests = Request.objects(status='Accepted')
 
-    return render_template('challangeBoard.html', accepted_requests=accepted_requests)
+    return render_template('challengeBoard.html', accepted_requests=accepted_requests)
 
 @main_bp.route('/Submit-Request-Page')
 def submitRequest():
@@ -400,6 +431,7 @@ def submitRequest():
 
 @main_bp.route('/Reject-Request/<request_id>', methods=['POST'])
 @login_required
+@admin_required
 def reject_request(request_id):
     # Implement logic to mark the request as rejected or delete it
     request_obj = Request.objects(id=request_id).first()
@@ -413,7 +445,7 @@ def reject_request(request_id):
         request_obj.delete()
         flash('Request deleted successfully.', 'info')
 
-    return redirect(url_for('main_bp.update_challange_board'))
+    return redirect(url_for('main_bp.update_challenge_board'))
 
 @main_bp.route('/accepted-request/<request_id>')
 @login_required
@@ -423,10 +455,48 @@ def view_accepted_request(request_id):
 
     if not request_obj:
         flash('Accepted support request not found.', 'error')
-        return redirect(url_for('main_bp.update_challange_board'))
+        return redirect(url_for('main_bp.update_challenge_board'))
 
     return render_template('viewAcceptedRequest.html', request_obj=request_obj)
 
+
+@main_bp.route('/Contact-Us', methods=['GET', 'POST'])
+def contact_us():
+    if request.method == 'POST':
+        full_name = request.form.get('fullName')
+        email = request.form.get('email')
+        message = request.form.get('message')
+
+        # Save the report to the database
+        contact_report = ContactReport(full_name=full_name, email=email, message=message)
+        contact_report.save()
+
+        flash('Your message has been submitted successfully.', 'success')
+        return redirect(url_for('main_bp.contact'))
+
+    return render_template('contactUs.html')
+
+# mainController.py
+@main_bp.route('/contact-reports')
+@login_required
+@admin_required
+def contact_reports():
+    # Retrieve all contact reports from the database
+    contact_reports = ContactReport.objects.all()
+    return render_template('contactReports.html', contact_reports=contact_reports)
+
+@main_bp.route('/delete-contact-report/<report_id>', methods=['POST'])
+@login_required
+@admin_required
+def delete_contact_report(report_id):
+    # Retrieve the contact report by ID and delete it
+    contact_report = ContactReport.objects(id=report_id).first()
+
+    if contact_report:
+        contact_report.delete()
+        flash('Contact report deleted successfully.', 'success')
+
+    return redirect(url_for('main_bp.contact_reports'))
 
 
 

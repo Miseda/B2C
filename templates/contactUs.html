@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>B2C</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/forms.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/flash.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel = "icon" href ="{{ url_for('static', filename='images/Head2.png') }}" type = "image/x-icon">
 </head>
@@ -83,6 +84,19 @@
         
     </header>
 
+    <div class="flash-container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div id="flash-container" class="flash-container">
+                    {% for message in messages %}
+                    <div class="flash-message info">{{ message }}</div>
+             {% endfor %}
+                </div>
+            <script src="{{ url_for('static', filename='JS/flash.js') }}"></script>
+            {% endif %}
+        {% endwith %}
+    </div>
+
     <div class="mainContainer">
 
         <div class="containerTitle">
@@ -98,7 +112,7 @@
             <div class="left-div5">
 
                 <div class="form-container">
-                    <form>
+                    <form method="POST" action="{{ url_for('main_bp.contact_us') }}">
                         <div class="form-group">
                             <label for="fullName">Full Name</label>
                             <input type="text" id="fullName" name="fullName" placeholder="Full Name" required>

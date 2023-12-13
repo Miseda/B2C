@@ -36,9 +36,7 @@
                     <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     <a href="{{ url_for('main_bp.contact') }}">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     <a href="{{ url_for('main_bp.careers') }}">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                    <a href="{{ url_for('main_bp.contact_reports') }}">Contact Reports<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     <a href="{{ url_for('main_bp.logout') }}">Log Out <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
-                
                 </div>
             </div>
             
@@ -53,16 +51,15 @@
                             <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                         </div>
                     </li>
-                    <li><a href="{{ url_for('main_bp.contact_reports') }}">Contact Reports</a></li>
-                    
-    
+                    <li><a href="{{ url_for('main_bp.aboutUs') }}">About Us</a></li>
+                    <li><a href="{{ url_for('main_bp.contact') }}">Contact Us</a></li>
                 </ul>
             </nav>
 
             <div class='right-buttons'>
 
                 <div class="career-btn">
-                    <a href="{{ url_for('main_bp.challenge_board') }}">Challenge Board</a>
+                    <a href="{{ url_for('main_bp.careers') }}">Careers</a>
                 </div>
 
                 <div class="login-btn">
@@ -80,18 +77,19 @@
             <div class="left-div8">
 
                 <div class="title8">
-                    <p>Welcome Admin,</p>
+                    <p>Welcome {{ first_name }},</p>
                 </div>
 
                 <div class="left-div-btns2">
 
                     <div class="upd-car-btn">
-                        <a href="{{ url_for('main_bp.updateCareer') }}">UPDATE CAREERS</a>
+                        <a href="{{ url_for('main_bp.submitRequest') }}">DESCRIBE YOUR APPLICATION</a>
                     </div>
 
                     <div class="upd-chall-btn">
-                        <a href="{{ url_for('main_bp.update_challenge_board') }}">UPDATE CHALLENGE BOARD</a>
+                        <a href="{{ url_for('main_bp.challenge_board') }}">CHALLENGE BOARD</a>
                     </div>
+
         
                 </div>
 

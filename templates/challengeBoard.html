@@ -110,16 +110,16 @@
 
     <div class="challegeContainer">
         <div class="challengeTitle1">
-            <p>Update Challange Board</p>
+            <p>Challenge Board</p>
         </div>
 
         <div class="challangeStatus">
-            <p>There are currently no challanges</p>
+            <p>There are currently no challenges</p>
         </div>
         
         <div class="challengeCards">
     
-            {% for request_obj in requests %}
+            {% for request_obj in accepted_requests %}
 
             <div class="job-card">
 
@@ -132,10 +132,7 @@
                 </div>
 
                 <div class="card-btn">
-                    {% if request_obj.status == 'Accepted' %}
-                        <button>Accepted</button>
-                    {% endif %}
-                    <a href="{{ url_for('main_bp.view_request', request_id=request_obj.id) }}">View Details</a>
+                    <a href="{{ url_for('main_bp.view_accepted_request', request_id=request_obj.id) }}">View Details</a>
                 </div>
 
             </div>

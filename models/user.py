@@ -12,4 +12,6 @@ class User(Document, UserMixin):
     # Add the reset_token field
     reset_token = StringField()
     
+    def is_admin(self):
+        return self.role == 'Admin'
 

@@ -964,6 +964,10 @@ footer {
 
 @media only screen and (max-width: 600px) {
 
+    .careerStatus {
+        font-size: 30px;
+    }
+
     .customers {
         display: flex;
         justify-content: center;

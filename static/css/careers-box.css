@@ -90,6 +90,7 @@ a{
     border-radius: 5px;
     outline: none;
     background-color: transparent;
+    font-family: 'Gordita-Light';
     border: 1px solid white;
     color: white;
     border-radius: 20px;
@@ -147,6 +148,11 @@ a{
 }
 
 @media only screen and (max-width: 600px) {
+    .search-bar input[type="text"] {
+        font-size: 14px;
+    }
+
+
     #careers-page{
         display: flex;
         /* padding: 20px, 30px; */

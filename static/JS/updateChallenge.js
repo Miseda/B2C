@@ -38,19 +38,61 @@ function performAction(action, actionUrl) {
   document.addEventListener('DOMContentLoaded', function () {
     // Get the element with class "challangeStatus"
     var challangeStatus = document.querySelector('.challangeStatus');
-
+  
     // Get the element with class "challengeCards"
     var challengeCards = document.querySelector('.challengeCards');
-
-    // Check if there are child elements (cards) inside the "challengeCards" element
-    if (challengeCards.children.length > 0) {
+  
+    // Function to update the visibility of challangeStatus
+    function updateChallangeStatusVisibility() {
+      if (challengeCards.children.length > 0) {
         // If there are cards, hide the "challangeStatus" element
         challangeStatus.style.display = 'none';
-    } else {
+      } else {
         // If no cards, show the "challangeStatus" element
         challangeStatus.style.display = 'block';
+      }
     }
+  
+    // Initial update on page load
+    updateChallangeStatusVisibility();
+  
+    // Add an event listener to handle changes in challengeCards
+    var observer = new MutationObserver(updateChallangeStatusVisibility);
+    observer.observe(challengeCards, { childList: true });
+  
+    // Clean up the observer when the page is unloaded
+    window.addEventListener('unload', function () {
+      observer.disconnect();
+    });
+  });
+  
+
+function deleteContactReport(reportId) {
+  // No confirmation, directly delete the contact report
+  $.ajax({
+    url: '/delete-contact-report/' + reportId,
+    type: 'POST',
+    data: $('#deleteForm').serialize(),
+    success: function (response) {
+
+      // Assuming your job card elements have a data-report-id attribute
+      $('.job-card[data-report-id="' + reportId + '"]').remove();
+    },
+    error: function (error) {
+      // Handle error
+      alert('Error deleting contact report.');
+    }
+  });
+}
+
+// Add this event listener to handle form submission
+$(document).on('submit', '.delete-form', function (e) {
+  e.preventDefault(); // Prevent the default form submission
+  var reportId = $(this).data('report-id');
+  deleteContactReport(reportId);
 });
+
+
   
 
 

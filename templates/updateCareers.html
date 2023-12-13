@@ -47,6 +47,7 @@
                 <a href="{{ url_for('main_bp.aboutUs') }}">About Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.contact') }}">Contact Us <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.careers') }}">Careers <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
+                <a href="{{ url_for('main_bp.contact_reports') }}">Contact Reports <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 {% if current_user.is_authenticated %}
                 <a href="{{ url_for('main_bp.logout') }}">Log Out<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                 <a href="{{ url_for('main_bp.dashboard') }}">Dashboard<img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
@@ -67,8 +68,7 @@
                         <a href="{{ url_for('main_bp.sys') }}">System Integration <img class="chevron-icon" src="{{ url_for('static', filename='images/chevron.svg') }}" alt="Chevron Icon"></a>
                     </div>
                 </li>
-                <li><a href="{{ url_for('main_bp.aboutUs') }}">About Us</a></li>
-                <li><a href="{{ url_for('main_bp.contact') }}">Contact Us</a></li>
+                <li><a href="{{ url_for('main_bp.careers') }}">Careers</a></li>
             </ul>
         </nav>
 
@@ -76,7 +76,7 @@
         
         <div class='right-buttons'>
             <div class="career-btn">
-                <a href="{{ url_for('main_bp.careers') }}">Careers</a>
+                <a href="{{ url_for('main_bp.dashboard') }}">Dashboard</a>
               </div>
         
             <div class="login-btn">

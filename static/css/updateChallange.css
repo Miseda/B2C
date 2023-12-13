@@ -819,6 +819,14 @@ footer {
     padding-left: 10px;
 }
 
+.challanegeDescription2{
+    width: 100%;
+    overflow-wrap: break-word;
+    height: auto;
+    padding-bottom: 30px;
+    padding-left: 10px;
+}
+
 .challangeStatus{
     text-align: center;
     color: white;
