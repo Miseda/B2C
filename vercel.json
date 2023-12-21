@@ -13,6 +13,5 @@
    
     "env": {
       "FLASK_ENV": "production"
-    },
-    "public": true
+    }
   }
